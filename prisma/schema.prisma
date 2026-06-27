@@ -1,0 +1,161 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client"
+  output   = "../src/generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+// ========================
+// Auth & User Models
+// ========================
+
+enum UserRole {
+  STUDENT
+  TEACHER
+  ADMIN
+}
+
+model User {
+  id            String    @id @default(cuid())
+  email         String    @unique
+  password      String?
+  firstName     String
+  lastName      String
+  role          UserRole  @default(STUDENT)
+  avatar        String?
+  emailVerified DateTime?
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime  @updatedAt
+
+  // Relations
+  accounts    Account[]
+  sessions    Session[]
+  enrollments Enrollment[]
+  assignments Assignment[] @relation("CreatedAssignments")
+  submissions Submission[]
+
+  @@map("users")
+}
+
+model Account {
+  id                String  @id @default(cuid())
+  userId            String
+  type              String
+  provider          String
+  providerAccountId String
+  refresh_token     String?
+  access_token      String?
+  expires_at        Int?
+  token_type        String?
+  scope             String?
+  id_token          String?
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([provider, providerAccountId])
+  @@map("accounts")
+}
+
+model Session {
+  id           String   @id @default(cuid())
+  sessionToken String   @unique
+  userId       String
+  expires      DateTime
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@map("sessions")
+}
+
+// ========================
+// Course & Class Models
+// ========================
+
+model Course {
+  id          String   @id @default(cuid())
+  name        String
+  description String?
+  code        String   @unique
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  enrollments Enrollment[]
+  assignments Assignment[]
+
+  @@map("courses")
+}
+
+model Enrollment {
+  id       String   @id @default(cuid())
+  userId   String
+  courseId  String
+  joinedAt DateTime @default(now())
+
+  user   User   @relation(fields: [userId], references: [id], onDelete: Cascade)
+  course Course @relation(fields: [courseId], references: [id], onDelete: Cascade)
+
+  @@unique([userId, courseId])
+  @@map("enrollments")
+}
+
+// ========================
+// Assignment & Submission Models
+// ========================
+
+enum ExamType {
+  TOEFL
+  YDS
+  YOKDIL
+}
+
+enum AssignmentType {
+  SPEAKING
+  WRITING
+  READING
+  LISTENING
+  GRAMMAR
+}
+
+model Assignment {
+  id          String         @id @default(cuid())
+  title       String
+  description String?
+  examType    ExamType
+  type        AssignmentType
+  prompt      String
+  dueDate     DateTime?
+  courseId     String
+  createdById String
+  createdAt   DateTime       @default(now())
+  updatedAt   DateTime       @updatedAt
+
+  course    Course       @relation(fields: [courseId], references: [id], onDelete: Cascade)
+  createdBy User         @relation("CreatedAssignments", fields: [createdById], references: [id])
+  submissions Submission[]
+
+  @@map("assignments")
+}
+
+model Submission {
+  id           String   @id @default(cuid())
+  assignmentId String
+  userId       String
+  content      String?
+  audioUrl     String?
+  score        Float?
+  feedback     String?
+  aiAnalysis   Json?
+  submittedAt  DateTime @default(now())
+  gradedAt     DateTime?
+
+  assignment Assignment @relation(fields: [assignmentId], references: [id], onDelete: Cascade)
+  user       User       @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@map("submissions")
+}
