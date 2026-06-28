@@ -1,22 +1,44 @@
-import { MOCK_STUDENT, MOCK_TEACHER } from "@/lib/mocks/sessionUser";
-import type { SessionUser, UserRole } from "@/types/user";
+import { auth } from "@/lib/auth/auth";
+import { headers } from "next/headers";
+import type { SessionUser } from "@/types/user";
 
-const USE_MOCK = process.env.NEXT_PUBLIC_USE_MOCK !== "false";
+/**
+ * Sunucu taraflı session okuma.
+ * Başarısız olursa null döner — middleware zaten korumasız erişimi engeller.
+ */
+export async function getSessionUser(): Promise<SessionUser | null> {
+  const session = await auth.api.getSession({
+    headers: await headers(),
+  });
 
-function resolveMockUser(): SessionUser {
-  const mockRole = process.env.NEXT_PUBLIC_MOCK_ROLE as UserRole | undefined;
-  if (mockRole === "TEACHER") return MOCK_TEACHER;
-  if (mockRole === "ADMIN") {
-    return { ...MOCK_TEACHER, role: "ADMIN", firstName: "Admin", lastName: "User" };
+  if (!session?.user) return null;
+
+  const u = session.user as {
+    id: string;
+    email: string;
+    firstName?: string;
+    lastName?: string;
+    name?: string;
+    image?: string;
+    role?: string;
+  };
+
+  // firstName / lastName yoksa name'den türet
+  let firstName = u.firstName ?? "";
+  let lastName = u.lastName ?? "";
+
+  if (!firstName && u.name) {
+    const parts = u.name.split(" ");
+    firstName = parts[0] ?? "";
+    lastName = parts.slice(1).join(" ") || "";
   }
-  return MOCK_STUDENT;
-}
 
-export async function getSessionUser(): Promise<SessionUser> {
-  if (USE_MOCK) {
-    return resolveMockUser();
-  }
-
-  // TODO: NextAuth entegrasyonu tamamlandığında auth() ile değiştirilecek
-  throw new Error("Auth henüz yapılandırılmadı. NEXT_PUBLIC_USE_MOCK=true kullanın.");
+  return {
+    id: u.id,
+    email: u.email,
+    firstName,
+    lastName,
+    role: (u.role as SessionUser["role"]) ?? "STUDENT",
+    avatar: u.image ?? null,
+  };
 }

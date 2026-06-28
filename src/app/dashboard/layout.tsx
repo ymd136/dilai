@@ -1,6 +1,7 @@
+import { getSessionUser } from "@/lib/auth/session";
+import { redirect } from "next/navigation";
 import { DashboardProvider } from "@/contexts/DashboardContext";
 import DashboardShell from "@/components/dashboard/layout/DashboardShell";
-import { getSessionUser } from "@/lib/auth/session";
 
 export default async function DashboardLayout({
   children,
@@ -8,6 +9,10 @@ export default async function DashboardLayout({
   children: React.ReactNode;
 }) {
   const user = await getSessionUser();
+
+  if (!user) {
+    redirect("/login");
+  }
 
   return (
     <DashboardProvider userRole={user.role}>

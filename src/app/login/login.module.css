@@ -228,10 +228,44 @@
   background: var(--border-default);
 }
 
-/* Social Button */
+/* Social Buttons */
+.socialButtons {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
 .socialBtn {
   width: 100%;
   gap: var(--space-3);
+}
+
+.microsoftBtn {
+  border-color: rgba(0, 120, 212, 0.3);
+}
+
+.microsoftBtn:hover {
+  border-color: rgba(0, 120, 212, 0.6);
+  background: rgba(0, 120, 212, 0.06);
+}
+
+/* Error Box */
+.errorBox {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-3) var(--space-4);
+  background: rgba(239, 68, 68, 0.08);
+  border: 1px solid rgba(239, 68, 68, 0.25);
+  border-radius: var(--radius-md);
+  color: #f87171;
+  font-size: var(--text-sm);
+  animation: fadeIn 0.2s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-4px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
 /* Register Link */
