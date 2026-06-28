@@ -1,5 +1,6 @@
 import { auth } from "@/lib/auth/auth";
 import { headers } from "next/headers";
+import { prisma } from "@/lib/prisma";
 import type { SessionUser } from "@/types/user";
 
 /**
@@ -33,6 +34,29 @@ export async function getSessionUser(): Promise<SessionUser | null> {
     lastName = parts.slice(1).join(" ") || "";
   }
 
+  // Kullanıcının kurum bilgisini veritabanından çek
+  let institutionName: string | null = null;
+  let institutionId: string | null = null;
+
+  try {
+    const dbUser = await prisma.user.findUnique({
+      where: { id: u.id },
+      select: {
+        institutionId: true,
+        institution: {
+          select: { name: true },
+        },
+      },
+    });
+
+    if (dbUser?.institution) {
+      institutionName = dbUser.institution.name;
+      institutionId = dbUser.institutionId;
+    }
+  } catch {
+    // DB hatası durumunda kurum bilgisi gösterilmez
+  }
+
   return {
     id: u.id,
     email: u.email,
@@ -40,5 +64,7 @@ export async function getSessionUser(): Promise<SessionUser | null> {
     lastName,
     role: (u.role as SessionUser["role"]) ?? "STUDENT",
     avatar: u.image ?? null,
+    institutionName,
+    institutionId,
   };
 }

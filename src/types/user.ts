@@ -7,6 +7,8 @@ export type SessionUser = {
   lastName: string;
   role: UserRole;
   avatar?: string | null;
+  institutionName?: string | null;
+  institutionId?: string | null;
 };
 
 export function toPrismaRole(role: "student" | "teacher" | "admin"): UserRole {

@@ -90,7 +90,10 @@ export default function DashboardNavbar({ user }: DashboardNavbarProps) {
               <span className={styles.profileName}>
                 {user.firstName} {user.lastName}
               </span>
-              <span className={styles.profileRole}>{roleLabel}</span>
+              <span className={styles.profileRole}>
+                {roleLabel}
+                {user.institutionName ? ` · ${user.institutionName}` : ""}
+              </span>
             </div>
             <svg
               width="14"
@@ -109,7 +112,12 @@ export default function DashboardNavbar({ user }: DashboardNavbarProps) {
             <div className={styles.userMenu} role="menu">
               <div className={styles.userMenuHeader}>
                 <span className={styles.userMenuEmail}>{user.email}</span>
-                <span className={styles.userMenuRoleBadge}>{roleLabel}</span>
+                <div className={styles.userMenuBadges}>
+                  <span className={styles.userMenuRoleBadge}>{roleLabel}</span>
+                  {user.institutionName && (
+                    <span className={styles.userMenuInstBadge}>{user.institutionName}</span>
+                  )}
+                </div>
               </div>
               <div className={styles.userMenuDivider} />
               <button

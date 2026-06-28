@@ -1,9 +1,9 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
-import { signUp, signIn } from "@/lib/auth/auth-client";
+import { signUp, signIn, useSession } from "@/lib/auth/auth-client";
 import styles from "./register.module.css";
 
 type UserRole = "student" | "teacher" | "admin";
@@ -56,6 +56,14 @@ function detectRoleHint(email: string): { message: string; type: "student" | "te
 
 export default function RegisterPage() {
   const router = useRouter();
+  const { data: session } = useSession();
+
+  useEffect(() => {
+    if (session) {
+      router.push("/dashboard");
+    }
+  }, [session, router]);
+
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [email, setEmail] = useState("");
@@ -65,6 +73,37 @@ export default function RegisterPage() {
   const [isLoading, setIsLoading] = useState(false);
   const [socialLoading, setSocialLoading] = useState<"google" | "microsoft" | null>(null);
   const [error, setError] = useState<string | null>(null);
+  const [detectedInstitution, setDetectedInstitution] = useState<string | null>(null);
+
+  useEffect(() => {
+    if (!email || !email.includes("@")) {
+      setDetectedInstitution(null);
+      return;
+    }
+
+    const timer = setTimeout(async () => {
+      try {
+        const res = await fetch(`/api/register/check-email?email=${encodeURIComponent(email)}`);
+        if (res.ok) {
+          const data = await res.json();
+          if (data.status === "PENDING" && data.institutionName) {
+            setDetectedInstitution(data.institutionName);
+            setError(null);
+          } else if (data.status === "ACTIVE") {
+            setDetectedInstitution(null);
+            setError("Bu e-posta adresi zaten kullanılıyor. Giriş yapmayı deneyin.");
+          } else {
+            setDetectedInstitution(null);
+            setError(null);
+          }
+        }
+      } catch (err) {
+        console.error("Check pre-registration error:", err);
+      }
+    }, 500);
+
+    return () => clearTimeout(timer);
+  }, [email]);
 
   const roleHint = detectRoleHint(email);
 
@@ -74,23 +113,34 @@ export default function RegisterPage() {
     setIsLoading(true);
 
     try {
-      // eslint-disable-next-line @typescript-eslint/no-explicit-any
-      const result = await (signUp.email as any)({
+      const res = await fetch("/api/register", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          firstName,
+          lastName,
+          email,
+          password,
+        }),
+      });
+
+      const data = await res.json();
+
+      if (!res.ok) {
+        setError(data.error ?? "Kayıt sırasında bir hata oluştu.");
+        setIsLoading(false);
+        return;
+      }
+
+      // Otomatik giriş
+      const loginResult = await signIn.email({
         email,
         password,
-        name: `${firstName} ${lastName}`.trim(),
-        firstName,
-        lastName,
         callbackURL: "/dashboard",
       });
 
-      if (result.error) {
-        const code = result.error.code;
-        if (code === "USER_ALREADY_EXISTS") {
-          setError("Bu e-posta adresi zaten kullanılıyor. Giriş yapmayı deneyin.");
-        } else {
-          setError(result.error.message ?? "Kayıt sırasında bir hata oluştu.");
-        }
+      if (loginResult.error) {
+        setError("Kayıt başarılı fakat giriş yapılamadı. Giriş sayfasını kullanabilirsiniz.");
       } else {
         router.push("/dashboard");
         router.refresh();
@@ -268,7 +318,17 @@ export default function RegisterPage() {
             </div>
           )}
 
-          {roleHint && (
+          {detectedInstitution ? (
+            <div className={styles.institutionActivationBox} role="status">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#22c55e" strokeWidth="2">
+                <path d="M22 11.08V12a10 10 0 11-5.93-9.14" />
+                <polyline points="22 4 12 14.01 9 11.01" />
+              </svg>
+              <span>
+                🏛️ <strong>{detectedInstitution}</strong> bünyesinde kayıt işleminizi tamamlıyorsunuz.
+              </span>
+            </div>
+          ) : roleHint ? (
             <div
               className={roleHint.type === "student" ? styles.studentHintBox : styles.roleHintBox}
               role="status"
@@ -280,7 +340,7 @@ export default function RegisterPage() {
               </svg>
               {roleHint.message}
             </div>
-          )}
+          ) : null}
 
           <form onSubmit={handleSubmit} className={styles.form} id="register-form">
             {/* Name Fields */}
@@ -345,11 +405,11 @@ export default function RegisterPage() {
                   id="register-password"
                   type={showPassword ? "text" : "password"}
                   className="input-field"
-                  placeholder="En az 8 karakter"
+                  placeholder="En az 3 karakter"
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
                   required
-                  minLength={8}
+                  minLength={3}
                   autoComplete="new-password"
                 />
                 <button

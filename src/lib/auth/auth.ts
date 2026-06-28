@@ -71,6 +71,11 @@ function isStudentSubdomain(domain: string): boolean {
 async function detectRoleFromEmail(
   email: string
 ): Promise<"STUDENT" | "TEACHER" | "ADMIN"> {
+  const emailLower = email.toLowerCase().trim();
+  if (emailLower === "admin@dilai.com" || emailLower === "batuhan@dilai.com") {
+    return "ADMIN";
+  }
+
   const domain = email.split("@")[1]?.toLowerCase() ?? "";
 
   if (!isEducationalDomain(domain)) {
@@ -134,7 +139,7 @@ export const auth = betterAuth({
   emailAndPassword: {
     enabled: true,
     autoSignIn: true,
-    minPasswordLength: 8,
+    minPasswordLength: 3,
   },
 
   socialProviders: {
@@ -175,6 +180,17 @@ export const auth = betterAuth({
         required: false,
         input: true,
       },
+      institutionId: {
+        type: "string",
+        required: false,
+        input: false,
+      },
+      status: {
+        type: "string",
+        required: false,
+        defaultValue: "ACTIVE",
+        input: false,
+      },
     },
   },
 
@@ -196,12 +212,38 @@ export const auth = betterAuth({
             lastName = parts.slice(1).join(" ") || "";
           }
 
+          // Kurum eşleşmesi: domain'e göre institutionId ata
+          let institutionId: string | undefined;
+          const emailLower = email.toLowerCase().trim();
+          const isSuperAdmin = emailLower === "admin@dilai.com" || emailLower === "batuhan@dilai.com";
+
+          if (!isSuperAdmin) {
+            const domain = email.split("@")[1]?.toLowerCase() ?? "";
+            if (isEducationalDomain(domain)) {
+              try {
+                const institution = await prisma.institution.findFirst({
+                  where: {
+                    domain: {
+                      in: buildDomainVariants(domain),
+                    },
+                  },
+                });
+                if (institution) {
+                  institutionId = institution.id;
+                }
+              } catch {
+                // DB hatası durumunda institutionId atanmaz
+              }
+            }
+          }
+
           return {
             data: {
               ...userData,
               role,
               firstName: firstName ?? "",
               lastName: lastName ?? "",
+              ...(institutionId ? { institutionId } : {}),
             },
           };
         },

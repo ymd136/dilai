@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 
 // Korunan rotalar — bu prefix'lere giriş yapmadan erişilemez
-const PROTECTED_PREFIXES = ["/dashboard"];
+const PROTECTED_PREFIXES = ["/dashboard", "/admin", "/company", "/student", "/teacher"];
 
 // Giriş yapmış kullanıcıların erişmemesi gereken rotalar
 const AUTH_ROUTES = ["/login", "/register"];
@@ -22,9 +22,8 @@ export async function proxy(request: NextRequest) {
   const isProtected = PROTECTED_PREFIXES.some((prefix) =>
     pathname.startsWith(prefix)
   );
-  const isAuthRoute = AUTH_ROUTES.some((route) => pathname.startsWith(route));
 
-  if (!isProtected && !isAuthRoute) {
+  if (!isProtected) {
     return NextResponse.next();
   }
 
@@ -36,15 +35,10 @@ export async function proxy(request: NextRequest) {
   const isLoggedIn = !!sessionToken;
 
   // Giriş yapmamış kullanıcı korumalı rotaya erişmeye çalışıyor
-  if (isProtected && !isLoggedIn) {
+  if (!isLoggedIn) {
     const loginUrl = new URL("/login", request.url);
     loginUrl.searchParams.set("callbackUrl", pathname);
     return NextResponse.redirect(loginUrl);
-  }
-
-  // Giriş yapmış kullanıcı login/register sayfasına erişiyor
-  if (isAuthRoute && isLoggedIn) {
-    return NextResponse.redirect(new URL("/dashboard", request.url));
   }
 
   return NextResponse.next();
