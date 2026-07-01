@@ -1,24 +1,28 @@
 import { getSessionUser } from "@/lib/auth/session";
-import StudentDashboard from "@/components/dashboard/student/StudentDashboard";
-import TeacherDashboard from "@/components/dashboard/teacher/TeacherDashboard";
+import { redirect } from "next/navigation";
 
+/**
+ * /dashboard artık bir yönlendirici sayfa.
+ * Kullanıcının rolüne göre doğru panele redirect eder.
+ */
 export default async function DashboardPage() {
   const user = await getSessionUser();
 
-  if (user.role === "TEACHER") {
-    return <TeacherDashboard user={user} />;
+  if (!user) {
+    redirect("/login");
   }
 
-  if (user.role === "STUDENT") {
-    return <StudentDashboard user={user} hasActiveClass={false} />;
+  switch (user.role) {
+    case "ADMIN":
+      if (user.institutionId) {
+        redirect("/company");
+      } else {
+        redirect("/admin");
+      }
+    case "TEACHER":
+      redirect("/teacher");
+    case "STUDENT":
+    default:
+      redirect("/student");
   }
-
-  return (
-    <div style={{ padding: "var(--space-8)", textAlign: "center" }}>
-      <h2 className="section-title">Yönetici Paneli</h2>
-      <p className="section-subtitle" style={{ margin: "0 auto" }}>
-        Yönetici dashboard&apos;u henüz geliştirilmedi.
-      </p>
-    </div>
-  );
 }

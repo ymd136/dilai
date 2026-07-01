@@ -3,7 +3,7 @@ import { redirect } from "next/navigation";
 import { DashboardProvider } from "@/contexts/DashboardContext";
 import DashboardShell from "@/components/dashboard/layout/DashboardShell";
 
-export default async function DashboardLayout({
+export default async function StudentLayout({
   children,
 }: {
   children: React.ReactNode;
@@ -12,6 +12,10 @@ export default async function DashboardLayout({
 
   if (!user) {
     redirect("/login");
+  }
+
+  if (user.role !== "STUDENT") {
+    redirect("/dashboard");
   }
 
   return (

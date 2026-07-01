@@ -44,6 +44,10 @@
   flex-shrink: 0;
 }
 
+.profileWrapper {
+  position: relative;
+}
+
 .profile {
   display: flex;
   align-items: center;
@@ -53,12 +57,135 @@
   border: 1px solid var(--border-subtle);
   background: var(--glass-bg);
   transition: all var(--transition-fast);
+  cursor: pointer;
 }
 
 .profile:hover {
   border-color: var(--border-hover);
   background: var(--glass-bg-strong);
 }
+
+.chevron {
+  color: var(--text-muted);
+  transition: transform var(--transition-fast);
+  flex-shrink: 0;
+}
+
+.chevronUp {
+  transform: rotate(180deg);
+}
+
+/* User dropdown menu */
+.userMenu {
+  position: absolute;
+  top: calc(100% + var(--space-2));
+  right: 0;
+  min-width: 220px;
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-xl);
+  z-index: var(--z-dropdown, 200);
+  overflow: hidden;
+  animation: menuFadeIn 0.15s ease;
+}
+
+@keyframes menuFadeIn {
+  from { opacity: 0; transform: translateY(-6px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.userMenuHeader {
+  padding: var(--space-4);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+}
+
+.userMenuEmail {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.userMenuRoleBadge {
+  font-size: var(--text-xs);
+  font-weight: 600;
+  color: var(--primary-400);
+  background: rgba(99, 102, 241, 0.1);
+  border: 1px solid rgba(99, 102, 241, 0.2);
+  border-radius: var(--radius-full);
+  padding: 2px var(--space-2);
+  width: fit-content;
+}
+
+.userMenuBadges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-1);
+  margin-top: var(--space-1);
+}
+
+.userMenuInstBadge {
+  font-size: 10px;
+  font-weight: 500;
+  color: var(--text-secondary);
+  background: var(--glass-bg-strong);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-sm);
+  padding: 1px var(--space-2);
+  width: fit-content;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 180px;
+}
+
+.userMenuDivider {
+  height: 1px;
+  background: var(--border-subtle);
+  margin: 0 var(--space-2);
+}
+
+.userMenuItem {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  width: 100%;
+  padding: var(--space-3) var(--space-4);
+  font-size: var(--text-sm);
+  font-weight: 500;
+  color: #f87171;
+  transition: all var(--transition-fast);
+  text-align: left;
+}
+
+.userMenuItem:hover {
+  background: rgba(239, 68, 68, 0.08);
+}
+
+.userMenuItem:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.menuSpinner {
+  width: 16px;
+  height: 16px;
+  border: 2px solid rgba(248, 113, 113, 0.3);
+  border-top-color: #f87171;
+  border-radius: 50%;
+  animation: spin 0.6s linear infinite;
+  flex-shrink: 0;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+
 
 .avatar {
   display: flex;

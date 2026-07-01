@@ -237,6 +237,112 @@
   to { transform: rotate(360deg); }
 }
 
+/* Social Buttons */
+.socialButtons {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.socialBtn {
+  width: 100%;
+  gap: var(--space-3);
+}
+
+.microsoftBtn {
+  border-color: rgba(0, 120, 212, 0.3);
+}
+
+.microsoftBtn:hover {
+  border-color: rgba(0, 120, 212, 0.6);
+  background: rgba(0, 120, 212, 0.06);
+}
+
+/* Divider */
+.divider {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+  color: var(--text-muted);
+  font-size: var(--text-sm);
+}
+
+.divider::before,
+.divider::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: var(--border-default);
+}
+
+/* Error Box */
+.errorBox {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-3) var(--space-4);
+  background: rgba(239, 68, 68, 0.08);
+  border: 1px solid rgba(239, 68, 68, 0.25);
+  border-radius: var(--radius-md);
+  color: #f87171;
+  font-size: var(--text-sm);
+  animation: fadeIn 0.2s ease;
+}
+
+/* Role Hint Box */
+.roleHintBox {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-3) var(--space-4);
+  background: rgba(99, 102, 241, 0.08);
+  border: 1px solid rgba(99, 102, 241, 0.25);
+  border-radius: var(--radius-md);
+  color: #818cf8;
+  font-size: var(--text-sm);
+  animation: fadeIn 0.2s ease;
+}
+
+/* Student Hint Box */
+.studentHintBox {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-3) var(--space-4);
+  background: rgba(16, 185, 129, 0.08);
+  border: 1px solid rgba(16, 185, 129, 0.25);
+  border-radius: var(--radius-md);
+  color: #34d399;
+  font-size: var(--text-sm);
+  animation: fadeIn 0.2s ease;
+}
+
+/* Institution Activation Box */
+.institutionActivationBox {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-3) var(--space-4);
+  background: rgba(34, 197, 94, 0.08);
+  border: 1px solid rgba(34, 197, 94, 0.25);
+  border-radius: var(--radius-md);
+  color: #4ade80;
+  font-size: var(--text-sm);
+  animation: fadeIn 0.2s ease;
+}
+
+/* Email Hint */
+.emailHint {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  margin-top: var(--space-1);
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-4px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
 /* Terms */
 .terms {
   text-align: center;
