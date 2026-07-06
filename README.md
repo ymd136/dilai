@@ -67,3 +67,19 @@ Bu sprint içerisinde tamamlanan başlıca geliştirmeler şunlardır:
 
 
 3. **Dashboard Altyapısı ve Ar-Ge:** Kullanıcıların giriş sonrasında görecekleri panellerin tasarımları tamamlandı ve ses-metin dönüştürme (Speech-to-Text) sürecinin Ar-Ge çalışmaları başlatıldı.
+
+---
+
+### 🔍 Sprint Review
+* **Participants:** <kbd>**Batuhan Bilgili**</kbd>, <kbd>**Yiğit Mert Demir**</kbd>, <kbd>**Sudenaz Şenbay**</kbd>
+* **Değerlendirme:** Sprint 1 için planlanan temel modüller (Landing Page, Login ve Dashboard taslakları) başarıyla tamamlanmış ve canlı prototip üzerinde review edilmiştir. Product Owner, geliştirilen arayüzlerin kurumsal kimliğe ve kullanıcı deneyimine (UX) uygunluğunu onaylamıştır. Yapay zeka ses analiz motoru için yapılan ön Ar-Ge çalışmaları ekiple paylaşılmış ve sonraki sprint'te entegrasyona hazır olduğu doğrulanmıştır.
+
+### Sprint Retrospective
+* **Neler İyi Gitti?**
+  * Ekip içi iletişim ve görev dağılımı oldukça verimliydi.
+  * Jira board aktif ve güncel tutularak iş takibi şeffaf bir şekilde sağlandı.
+  * Tasarımların hızlıca koda dökülmesi sürecine erken başlandı.
+* **Neler Geliştirilebilir?**
+  * Görevlerin alt task'lere bölünmesi aşamasında zaman tahminlemeleri biraz daha esnek tutulabilir.
+  * Teknik bağımlılıklar (özellikle ses analitiği kütüphaneleri) sonraki sprint planlamasından önce netleştirilmelidir.
+* **Aksiyon Planı:** Sprint 2 planlamasında yapay zeka entegrasyonu için teknik araştırma süreleri (Spike) önceden tanımlanacak ve iş yükü dağılımı buna göre optimize edilecektir.
