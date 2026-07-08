@@ -1,0 +1,842 @@
+[
+  {
+    "id": 1,
+    "level": "A1",
+    "question_text": "Hello, what ____ your name?",
+    "options": {"A": "am", "B": "is", "C": "are", "D": "be"},
+    "correct_answer": "B"
+  },
+  {
+    "id": 2,
+    "level": "A1",
+    "question_text": "I ____ a student.",
+    "options": {"A": "is", "B": "am", "C": "are", "D": "do"},
+    "correct_answer": "B"
+  },
+  {
+    "id": 3,
+    "level": "A1",
+    "question_text": "____ you from Turkey?",
+    "options": {"A": "Is", "B": "Are", "C": "Do", "D": "Am"},
+    "correct_answer": "B"
+  },
+  {
+    "id": 4,
+    "level": "A1",
+    "question_text": "My brother ____ to the gym every day.",
+    "options": {"A": "go", "B": "goes", "C": "going", "D": "gone"},
+    "correct_answer": "B"
+  },
+  {
+    "id": 5,
+    "level": "A1",
+    "question_text": "There ____ three apples on the table.",
+    "options": {"A": "is", "B": "am", "C": "are", "D": "have"},
+    "correct_answer": "C"
+  },
+  {
+    "id": 6,
+    "level": "A1",
+    "question_text": "I don't have ____ milk in the fridge.",
+    "options": {"A": "some", "B": "any", "C": "a", "D": "an"},
+    "correct_answer": "B"
+  },
+  {
+    "id": 7,
+    "level": "A1",
+    "question_text": "She ____ a red car.",
+    "options": {"A": "have", "B": "has", "C": "is", "D": "does"},
+    "correct_answer": "B"
+  },
+  {
+    "id": 8,
+    "level": "A1",
+    "question_text": "Where ____ you live?",
+    "options": {"A": "do", "B": "does", "C": "are", "D": "is"},
+    "correct_answer": "A"
+  },
+  {
+    "id": 9,
+    "level": "A1",
+    "question_text": "Can you ____ the piano?",
+    "options": {"A": "play", "B": "plays", "C": "playing", "D": "to play"},
+    "correct_answer": "A"
+  },
+  {
+    "id": 10,
+    "level": "A1",
+    "question_text": "These are my ____.",
+    "options": {"A": "book", "B": "books", "C": "a book", "D": "of books"},
+    "correct_answer": "B"
+  },
+  {
+    "id": 11,
+    "level": "A1",
+    "question_text": "My birthday is ____ May.",
+    "options": {"A": "in", "B": "on", "C": "at", "D": "to"},
+    "correct_answer": "A"
+  },
+  {
+    "id": 12,
+    "level": "A1",
+    "question_text": "____ is that man? He is my uncle.",
+    "options": {"A": "What", "B": "Where", "C": "Who", "D": "How"},
+    "correct_answer": "C"
+  },
+  {
+    "id": 13,
+    "level": "A1",
+    "question_text": "I usually get up ____ 7 o'clock.",
+    "options": {"A": "in", "B": "at", "C": "on", "D": "by"},
+    "correct_answer": "B"
+  },
+  {
+    "id": 14,
+    "level": "A1",
+    "question_text": "Is this ____ pen?",
+    "options": {"A": "you", "B": "your", "C": "yours", "D": "you're"},
+    "correct_answer": "B"
+  },
+  {
+    "id": 15,
+    "level": "A1",
+    "question_text": "We ____ to the cinema last night.",
+    "options": {"A": "go", "B": "goes", "C": "went", "D": "gone"},
+    "correct_answer": "C"
+  },
+  {
+    "id": 16,
+    "level": "A1",
+    "question_text": "Look! It ____.",
+    "options": {"A": "rain", "B": "rains", "C": "is raining", "D": "rained"},
+    "correct_answer": "C"
+  },
+  {
+    "id": 17,
+    "level": "A1",
+    "question_text": "I like ____ oranges.",
+    "options": {"A": "this", "B": "that", "C": "these", "D": "much"},
+    "correct_answer": "C"
+  },
+  {
+    "id": 18,
+    "level": "A1",
+    "question_text": "How ____ is this shirt?",
+    "options": {"A": "many", "B": "much", "C": "old", "D": "long"},
+    "correct_answer": "B"
+  },
+  {
+    "id": 19,
+    "level": "A1",
+    "question_text": "Please sit ____.",
+    "options": {"A": "up", "B": "down", "C": "in", "D": "on"},
+    "correct_answer": "B"
+  },
+  {
+    "id": 20,
+    "level": "A1",
+    "question_text": "I have two ____.",
+    "options": {"A": "child", "B": "childrens", "C": "children", "D": "childs"},
+    "correct_answer": "C"
+  },
+  {
+    "id": 21,
+    "level": "A2",
+    "question_text": "I ____ seen that movie before.",
+    "options": {"A": "haven't", "B": "don't", "C": "didn't", "D": "wasn't"},
+    "correct_answer": "A"
+  },
+  {
+    "id": 22,
+    "level": "A2",
+    "question_text": "Tokyo is ____ than London.",
+    "options": {"A": "big", "B": "bigger", "C": "biggest", "D": "more big"},
+    "correct_answer": "B"
+  },
+  {
+    "id": 23,
+    "level": "A2",
+    "question_text": "If it rains, I ____ at home.",
+    "options": {"A": "stay", "B": "will stay", "C": "stayed", "D": "would stay"},
+    "correct_answer": "B"
+  },
+  {
+    "id": 24,
+    "level": "A2",
+    "question_text": "You ____ smoke here; it's forbidden.",
+    "options": {"A": "mustn't", "B": "shouldn't", "C": "don't have to", "D": "can"},
+    "correct_answer": "A"
+  },
+  {
+    "id": 25,
+    "level": "A2",
+    "question_text": "I was walking when I ____ her.",
+    "options": {"A": "see", "B": "saw", "C": "seen", "D": "was seeing"},
+    "correct_answer": "B"
+  },
+  {
+    "id": 26,
+    "level": "A2",
+    "question_text": "Have you ____ been to Paris?",
+    "options": {"A": "never", "B": "ever", "C": "yet", "D": "already"},
+    "correct_answer": "B"
+  },
+  {
+    "id": 27,
+    "level": "A2",
+    "question_text": "This cake was ____ by my mother.",
+    "options": {"A": "make", "B": "made", "C": "making", "D": "makes"},
+    "correct_answer": "B"
+  },
+  {
+    "id": 28,
+    "level": "A2",
+    "question_text": "I am interested ____ learning English.",
+    "options": {"A": "in", "B": "on", "C": "at", "D": "about"},
+    "correct_answer": "A"
+  },
+  {
+    "id": 29,
+    "level": "A2",
+    "question_text": "He is the ____ student in the class.",
+    "options": {"A": "good", "B": "better", "C": "best", "D": "goodest"},
+    "correct_answer": "C"
+  },
+  {
+    "id": 30,
+    "level": "A2",
+    "question_text": "What ____ you do yesterday?",
+    "options": {"A": "do", "B": "did", "C": "done", "D": "were"},
+    "correct_answer": "B"
+  },
+  {
+    "id": 31,
+    "level": "A2",
+    "question_text": "I'm going to ____ a doctor.",
+    "options": {"A": "be", "B": "am", "C": "is", "D": "are"},
+    "correct_answer": "A"
+  },
+  {
+    "id": 32,
+    "level": "A2",
+    "question_text": "She speaks English ____.",
+    "options": {"A": "good", "B": "well", "C": "better", "D": "best"},
+    "correct_answer": "B"
+  },
+  {
+    "id": 33,
+    "level": "A2",
+    "question_text": "Would you like ____ coffee?",
+    "options": {"A": "any", "B": "some", "C": "a", "D": "few"},
+    "correct_answer": "B"
+  },
+  {
+    "id": 34,
+    "level": "A2",
+    "question_text": "I ____ to work by bus.",
+    "options": {"A": "go", "B": "goes", "C": "am going", "D": "gone"},
+    "correct_answer": "A"
+  },
+  {
+    "id": 35,
+    "level": "A2",
+    "question_text": "The keys are ____ the drawer.",
+    "options": {"A": "in", "B": "on", "C": "at", "D": "between"},
+    "correct_answer": "A"
+  },
+  {
+    "id": 36,
+    "level": "A2",
+    "question_text": "____ you like to dance?",
+    "options": {"A": "Do", "B": "Would", "C": "Are", "D": "Can"},
+    "correct_answer": "B"
+  },
+  {
+    "id": 37,
+    "level": "A2",
+    "question_text": "I've been working here ____ three years.",
+    "options": {"A": "for", "B": "since", "C": "during", "D": "at"},
+    "correct_answer": "A"
+  },
+  {
+    "id": 38,
+    "level": "A2",
+    "question_text": "He didn't ____ his homework.",
+    "options": {"A": "do", "B": "does", "C": "did", "D": "done"},
+    "correct_answer": "A"
+  },
+  {
+    "id": 39,
+    "level": "A2",
+    "question_text": "Whose bag is this? It's ____.",
+    "options": {"A": "me", "B": "mine", "C": "my", "D": "I"},
+    "correct_answer": "B"
+  },
+  {
+    "id": 40,
+    "level": "A2",
+    "question_text": "We ____ a great holiday last summer.",
+    "options": {"A": "have", "B": "had", "C": "has", "D": "having"},
+    "correct_answer": "B"
+  },
+  {
+    "id": 41,
+    "level": "B1",
+    "question_text": "I ____ my keys. Can you help me find them?",
+    "options": {"A": "lost", "B": "have lost", "C": "lose", "D": "had lost"},
+    "correct_answer": "B"
+  },
+  {
+    "id": 42,
+    "level": "B1",
+    "question_text": "If I ____ you, I would take that job.",
+    "options": {"A": "am", "B": "was", "C": "were", "D": "be"},
+    "correct_answer": "C"
+  },
+  {
+    "id": 43,
+    "level": "B1",
+    "question_text": "The letter ____ sent two days ago.",
+    "options": {"A": "is", "B": "was", "C": "has been", "D": "was being"},
+    "correct_answer": "B"
+  },
+  {
+    "id": 44,
+    "level": "B1",
+    "question_text": "I look forward to ____ you soon.",
+    "options": {"A": "see", "B": "seeing", "C": "seen", "D": "to see"},
+    "correct_answer": "B"
+  },
+  {
+    "id": 45,
+    "level": "B1",
+    "question_text": "He asked me where ____.",
+    "options": {"A": "do I live", "B": "I lived", "C": "did I live", "D": "I live"},
+    "correct_answer": "B"
+  },
+  {
+    "id": 46,
+    "level": "B1",
+    "question_text": "You ____ finish the report today; tomorrow is fine.",
+    "options": {"A": "mustn't", "B": "don't have to", "C": "shouldn't", "D": "can't"},
+    "correct_answer": "B"
+  },
+  {
+    "id": 47,
+    "level": "B1",
+    "question_text": "By the time I arrived, the train ____.",
+    "options": {"A": "leaves", "B": "has left", "C": "had left", "D": "left"},
+    "correct_answer": "C"
+  },
+  {
+    "id": 48,
+    "level": "B1",
+    "question_text": "I'm used to ____ early.",
+    "options": {"A": "get up", "B": "getting up", "C": "got up", "D": "gets up"},
+    "correct_answer": "B"
+  },
+  {
+    "id": 49,
+    "level": "B1",
+    "question_text": "I wish I ____ more money.",
+    "options": {"A": "have", "B": "had", "C": "has", "D": "having"},
+    "correct_answer": "B"
+  },
+  {
+    "id": 50,
+    "level": "B1",
+    "question_text": "This is the man ____ son won the prize.",
+    "options": {"A": "who", "B": "whose", "C": "whom", "D": "which"},
+    "correct_answer": "B"
+  },
+  {
+    "id": 51,
+    "level": "B1",
+    "question_text": "Although it was cold, ____ they went swimming.",
+    "options": {"A": "but", "B": "-", "C": "so", "D": "however"},
+    "correct_answer": "B"
+  },
+  {
+    "id": 52,
+    "level": "B1",
+    "question_text": "I'll call you as soon as I ____.",
+    "options": {"A": "arrive", "B": "will arrive", "C": "arriving", "D": "arrived"},
+    "correct_answer": "A"
+  },
+  {
+    "id": 53,
+    "level": "B1",
+    "question_text": "You should avoid ____ sugar.",
+    "options": {"A": "eat", "B": "eating", "C": "to eat", "D": "eaten"},
+    "correct_answer": "B"
+  },
+  {
+    "id": 54,
+    "level": "B1",
+    "question_text": "He's the person ____ I told you about.",
+    "options": {"A": "who", "B": "which", "C": "whose", "D": "what"},
+    "correct_answer": "A"
+  },
+  {
+    "id": 55,
+    "level": "B1",
+    "question_text": "This house ____ in 1920.",
+    "options": {"A": "built", "B": "was built", "C": "has been built", "D": "is built"},
+    "correct_answer": "B"
+  },
+  {
+    "id": 56,
+    "level": "B1",
+    "question_text": "Neither Tom ____ Jerry was there.",
+    "options": {"A": "or", "B": "nor", "C": "and", "D": "but"},
+    "correct_answer": "B"
+  },
+  {
+    "id": 57,
+    "level": "B1",
+    "question_text": "It's time we ____.",
+    "options": {"A": "go", "B": "went", "C": "going", "D": "to go"},
+    "correct_answer": "B"
+  },
+  {
+    "id": 58,
+    "level": "B1",
+    "question_text": "I'd rather ____ at home tonight.",
+    "options": {"A": "stay", "B": "to stay", "C": "staying", "D": "stayed"},
+    "correct_answer": "A"
+  },
+  {
+    "id": 59,
+    "level": "B1",
+    "question_text": "I managed ____ the exam.",
+    "options": {"A": "pass", "B": "passing", "C": "to pass", "D": "passed"},
+    "correct_answer": "C"
+  },
+  {
+    "id": 60,
+    "level": "B1",
+    "question_text": "She ____ be tired; she's been working all day.",
+    "options": {"A": "can", "B": "must", "C": "may", "D": "might"},
+    "correct_answer": "B"
+  },
+  {
+    "id": 61,
+    "level": "B2",
+    "question_text": "Rarely ____ such a beautiful sunset.",
+    "options": {"A": "I have seen", "B": "have I seen", "C": "did I see", "D": "I saw"},
+    "correct_answer": "B"
+  },
+  {
+    "id": 62,
+    "level": "B2",
+    "question_text": "I ____ my car repaired tomorrow.",
+    "options": {"A": "have", "B": "am having", "C": "will have", "D": "get"},
+    "correct_answer": "B"
+  },
+  {
+    "id": 63,
+    "level": "B2",
+    "question_text": "Suppose you ____ the lottery, what would you do?",
+    "options": {"A": "win", "B": "won", "C": "had won", "D": "wins"},
+    "correct_answer": "B"
+  },
+  {
+    "id": 64,
+    "level": "B2",
+    "question_text": "Not only ____ fast, but he also plays well.",
+    "options": {"A": "he runs", "B": "does he run", "C": "he is running", "D": "runs he"},
+    "correct_answer": "B"
+  },
+  {
+    "id": 65,
+    "level": "B2",
+    "question_text": "I'd rather you ____ tell him the truth.",
+    "options": {"A": "don't", "B": "didn't", "C": "won't", "D": "not"},
+    "correct_answer": "B"
+  },
+  {
+    "id": 66,
+    "level": "B2",
+    "question_text": "By next year, I ____ my degree.",
+    "options": {"A": "will finish", "B": "will have finished", "C": "finish", "D": "finished"},
+    "correct_answer": "B"
+  },
+  {
+    "id": 67,
+    "level": "B2",
+    "question_text": "It's no use ____ about it now.",
+    "options": {"A": "complain", "B": "complaining", "C": "to complain", "D": "complained"},
+    "correct_answer": "B"
+  },
+  {
+    "id": 68,
+    "level": "B2",
+    "question_text": "They ____ have forgotten about the meeting.",
+    "options": {"A": "must", "B": "should", "C": "can", "D": "ought"},
+    "correct_answer": "A"
+  },
+  {
+    "id": 69,
+    "level": "B2",
+    "question_text": "Despite ____ hard, he failed the test.",
+    "options": {"A": "study", "B": "studying", "C": "he studied", "D": "to study"},
+    "correct_answer": "B"
+  },
+  {
+    "id": 70,
+    "level": "B2",
+    "question_text": "I regret ____ you that your application was rejected.",
+    "options": {"A": "inform", "B": "informing", "C": "to inform", "D": "informed"},
+    "correct_answer": "C"
+  },
+  {
+    "id": 71,
+    "level": "B2",
+    "question_text": "If he ____ more careful, the accident wouldn't have happened.",
+    "options": {"A": "was", "B": "is", "C": "had been", "D": "has been"},
+    "correct_answer": "C"
+  },
+  {
+    "id": 72,
+    "level": "B2",
+    "question_text": "The city ____ I grew up is very small.",
+    "options": {"A": "which", "B": "where", "C": "that", "D": "who"},
+    "correct_answer": "B"
+  },
+  {
+    "id": 73,
+    "level": "B2",
+    "question_text": "I'm thinking ____ buying a new house.",
+    "options": {"A": "of", "B": "about", "C": "on", "D": "at"},
+    "correct_answer": "A"
+  },
+  {
+    "id": 74,
+    "level": "B2",
+    "question_text": "The steak was ____ tough to eat.",
+    "options": {"A": "too", "B": "enough", "C": "so", "D": "very"},
+    "correct_answer": "A"
+  },
+  {
+    "id": 75,
+    "level": "B2",
+    "question_text": "Neither of the candidates ____ suitable.",
+    "options": {"A": "is", "B": "are", "C": "be", "D": "being"},
+    "correct_answer": "A"
+  },
+  {
+    "id": 76,
+    "level": "B2",
+    "question_text": "He works ____ a waiter.",
+    "options": {"A": "as", "B": "like", "C": "such", "D": "as if"},
+    "correct_answer": "A"
+  },
+  {
+    "id": 77,
+    "level": "B2",
+    "question_text": "You ____ better see a doctor.",
+    "options": {"A": "had", "B": "would", "C": "should", "D": "could"},
+    "correct_answer": "A"
+  },
+  {
+    "id": 78,
+    "level": "B2",
+    "question_text": "Only after the match ____ how tired he was.",
+    "options": {"A": "he realized", "B": "did he realize", "C": "he did realize", "D": "realized he"},
+    "correct_answer": "B"
+  },
+  {
+    "id": 79,
+    "level": "B2",
+    "question_text": "I suggested ____ to the park.",
+    "options": {"A": "go", "B": "going", "C": "to go", "D": "goes"},
+    "correct_answer": "B"
+  },
+  {
+    "id": 80,
+    "level": "B2",
+    "question_text": "It ____ have been John; he is in New York.",
+    "options": {"A": "can't", "B": "mustn't", "C": "shouldn't", "D": "may not"},
+    "correct_answer": "A"
+  },
+  {
+    "id": 81,
+    "level": "C1",
+    "question_text": "Had I known, I ____ differently.",
+    "options": {"A": "would act", "B": "would have acted", "C": "acted", "D": "will act"},
+    "correct_answer": "B"
+  },
+  {
+    "id": 82,
+    "level": "C1",
+    "question_text": "I'd sooner you ____ smoking in here.",
+    "options": {"A": "stop", "B": "stopped", "C": "will stop", "D": "stopping"},
+    "correct_answer": "B"
+  },
+  {
+    "id": 83,
+    "level": "C1",
+    "question_text": "Little ____ that he was being watched.",
+    "options": {"A": "he knew", "B": "did he know", "C": "knew he", "D": "he did know"},
+    "correct_answer": "B"
+  },
+  {
+    "id": 84,
+    "level": "C1",
+    "question_text": "He acts as if he ____ the boss.",
+    "options": {"A": "is", "B": "were", "C": "will be", "D": "has been"},
+    "correct_answer": "B"
+  },
+  {
+    "id": 85,
+    "level": "C1",
+    "question_text": "Under no circumstances ____ leave this room.",
+    "options": {"A": "you should", "B": "should you", "C": "you must", "D": "must you"},
+    "correct_answer": "B"
+  },
+  {
+    "id": 86,
+    "level": "C1",
+    "question_text": "I found the book ____ interesting.",
+    "options": {"A": "quite", "B": "fairly", "C": "rather", "D": "immensely"},
+    "correct_answer": "D"
+  },
+  {
+    "id": 87,
+    "level": "C1",
+    "question_text": "The project, ____ successful, will change everything.",
+    "options": {"A": "were it to be", "B": "if it will be", "C": "being", "D": "it is"},
+    "correct_answer": "A"
+  },
+  {
+    "id": 88,
+    "level": "C1",
+    "question_text": "I was ____ the point of leaving when she called.",
+    "options": {"A": "at", "B": "on", "C": "in", "D": "to"},
+    "correct_answer": "B"
+  },
+  {
+    "id": 89,
+    "level": "C1",
+    "question_text": "Provided ____ you work hard, you will succeed.",
+    "options": {"A": "that", "B": "if", "C": "whether", "D": "unless"},
+    "correct_answer": "A"
+  },
+  {
+    "id": 90,
+    "level": "C1",
+    "question_text": "He is believed ____ the country.",
+    "options": {"A": "leave", "B": "to leave", "C": "to have left", "D": "leaving"},
+    "correct_answer": "C"
+  },
+  {
+    "id": 91,
+    "level": "C1",
+    "question_text": "____ it not for your help, I would have failed.",
+    "options": {"A": "Was", "B": "Were", "C": "Had", "D": "If"},
+    "correct_answer": "B"
+  },
+  {
+    "id": 92,
+    "level": "C1",
+    "question_text": "I'm afraid I've ____ out of bread.",
+    "options": {"A": "run", "B": "gone", "C": "walked", "D": "stayed"},
+    "correct_answer": "A"
+  },
+  {
+    "id": 93,
+    "level": "C1",
+    "question_text": "No sooner had I sat down ____ the phone rang.",
+    "options": {"A": "when", "B": "than", "C": "then", "D": "that"},
+    "correct_answer": "B"
+  },
+  {
+    "id": 94,
+    "level": "C1",
+    "question_text": "It is essential that he ____ present.",
+    "options": {"A": "is", "B": "be", "C": "was", "D": "were"},
+    "correct_answer": "B"
+  },
+  {
+    "id": 95,
+    "level": "C1",
+    "question_text": "Try ____ he might, he couldn't open the door.",
+    "options": {"A": "as", "B": "how", "C": "however", "D": "though"},
+    "correct_answer": "A"
+  },
+  {
+    "id": 96,
+    "level": "C1",
+    "question_text": "The company is on the ____ of bankruptcy.",
+    "options": {"A": "edge", "B": "verge", "C": "border", "D": "limit"},
+    "correct_answer": "B"
+  },
+  {
+    "id": 97,
+    "level": "C1",
+    "question_text": "Such ____ the intensity of the storm that trees fell.",
+    "options": {"A": "is", "B": "was", "C": "were", "D": "be"},
+    "correct_answer": "B"
+  },
+  {
+    "id": 98,
+    "level": "C1",
+    "question_text": "He took the job ____ to gain experience.",
+    "options": {"A": "so as", "B": "in order", "C": "with a view", "D": "due"},
+    "correct_answer": "A"
+  },
+  {
+    "id": 99,
+    "level": "C1",
+    "question_text": "We need to ____ account for all possibilities.",
+    "options": {"A": "take", "B": "make", "C": "give", "D": "get"},
+    "correct_answer": "A"
+  },
+  {
+    "id": 100,
+    "level": "C1",
+    "question_text": "It's high time you ____ for a job.",
+    "options": {"A": "start looking", "B": "started looking", "C": "look", "D": "to look"},
+    "correct_answer": "B"
+  },
+  {
+    "id": 101,
+    "level": "C2",
+    "question_text": "Scarcely ____ the meeting started when the fire alarm went off.",
+    "options": {"A": "had", "B": "did", "C": "has", "D": "would"},
+    "correct_answer": "A"
+  },
+  {
+    "id": 102,
+    "level": "C2",
+    "question_text": "He is a person of ____ integrity.",
+    "options": {"A": "unimpeachable", "B": "unreachable", "C": "untouchable", "D": "unbreakable"},
+    "correct_answer": "A"
+  },
+  {
+    "id": 103,
+    "level": "C2",
+    "question_text": "The result was ____ of what we expected.",
+    "options": {"A": "antithetical", "B": "opposite", "C": "contrary", "D": "inverse"},
+    "correct_answer": "A"
+  },
+  {
+    "id": 104,
+    "level": "C2",
+    "question_text": "She has an ____ ability to predict market trends.",
+    "options": {"A": "uncanny", "B": "unusual", "C": "unlikely", "D": "unknown"},
+    "correct_answer": "A"
+  },
+  {
+    "id": 105,
+    "level": "C2",
+    "question_text": "Were it not for his ____, the company would have folded.",
+    "options": {"A": "persistence", "B": "persisting", "C": "persist", "D": "persisted"},
+    "correct_answer": "A"
+  },
+  {
+    "id": 106,
+    "level": "C2",
+    "question_text": "The speaker's voice was barely ____ above the noise.",
+    "options": {"A": "audible", "B": "edible", "C": "visible", "D": "credible"},
+    "correct_answer": "A"
+  },
+  {
+    "id": 107,
+    "level": "C2",
+    "question_text": "He was ____ by the complexity of the task.",
+    "options": {"A": "daunted", "B": "excited", "C": "pleased", "D": "amused"},
+    "correct_answer": "A"
+  },
+  {
+    "id": 108,
+    "level": "C2",
+    "question_text": "The treaty was ____ by all parties involved.",
+    "options": {"A": "ratified", "B": "rectified", "C": "identified", "D": "satisfied"},
+    "correct_answer": "A"
+  },
+  {
+    "id": 109,
+    "level": "C2",
+    "question_text": "There is a ____ of evidence to support his claim.",
+    "options": {"A": "dearth", "B": "wealth", "C": "lack", "D": "plenty"},
+    "correct_answer": "A"
+  },
+  {
+    "id": 110,
+    "level": "C2",
+    "question_text": "Her argument was ____ and well-reasoned.",
+    "options": {"A": "cogent", "B": "urgent", "C": "diligent", "D": "negligent"},
+    "correct_answer": "A"
+  },
+  {
+    "id": 111,
+    "level": "C2",
+    "question_text": "He was found guilty of ____ after lying in court.",
+    "options": {"A": "perjury", "B": "forgery", "C": "bribery", "D": "robbery"},
+    "correct_answer": "A"
+  },
+  {
+    "id": 112,
+    "level": "C2",
+    "question_text": "The city was ____ by the invading army.",
+    "options": {"A": "besieged", "B": "believed", "C": "behaved", "D": "bestowed"},
+    "correct_answer": "A"
+  },
+  {
+    "id": 113,
+    "level": "C2",
+    "question_text": "His performance was ____ with that of a professional.",
+    "options": {"A": "commensurate", "B": "compatible", "C": "comparable", "D": "consistent"},
+    "correct_answer": "A"
+  },
+  {
+    "id": 114,
+    "level": "C2",
+    "question_text": "The implications of the decision are ____.",
+    "options": {"A": "far-reaching", "B": "far-fetched", "C": "far-flung", "D": "far-off"},
+    "correct_answer": "A"
+  },
+  {
+    "id": 115,
+    "level": "C2",
+    "question_text": "He is ____ to making hasty decisions.",
+    "options": {"A": "prone", "B": "likely", "C": "ready", "D": "open"},
+    "correct_answer": "A"
+  },
+  {
+    "id": 116,
+    "level": "C2",
+    "question_text": "The news came as a ____ to the community.",
+    "options": {"A": "bombshell", "B": "firework", "C": "explosion", "D": "disaster"},
+    "correct_answer": "A"
+  },
+  {
+    "id": 117,
+    "level": "C2",
+    "question_text": "He has a ____ for getting into trouble.",
+    "options": {"A": "propensity", "B": "proclivity", "C": "tendency", "D": "penchant"},
+    "correct_answer": "A"
+  },
+  {
+    "id": 118,
+    "level": "C2",
+    "question_text": "The laws were ____ to reflect modern values.",
+    "options": {"A": "amended", "B": "abandoned", "C": "abolished", "D": "adopted"},
+    "correct_answer": "A"
+  },
+  {
+    "id": 119,
+    "level": "C2",
+    "question_text": "He was ____ with the task of leading the team.",
+    "options": {"A": "entrusted", "B": "endowed", "C": "enforced", "D": "engaged"},
+    "correct_answer": "A"
+  },
+  {
+    "id": 120,
+    "level": "C2",
+    "question_text": "The meeting was ____ until next week.",
+    "options": {"A": "adjourned", "B": "postponed", "C": "canceled", "D": "delayed"},
+    "correct_answer": "A"
+  }
+]
