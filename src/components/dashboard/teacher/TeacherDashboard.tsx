@@ -5,7 +5,7 @@ import TeacherWelcomeBanner from "./TeacherWelcomeBanner";
 import TeacherAssistantCards from "./TeacherAssistantCards";
 import ClassManagement from "./ClassManagement";
 import AssignmentTracker from "./AssignmentTracker";
-import TeacherAiWorkroom from "./TeacherAiWorkroom";
+import CreateAssignment from "./CreateAssignment";
 import TeacherAnalytics from "./TeacherAnalytics";
 import type { SessionUser } from "@/types/user";
 import styles from "./TeacherDashboard.module.css";
@@ -45,7 +45,7 @@ export default function TeacherDashboard({ user }: TeacherDashboardProps) {
   if (activeNav === "ai-room") {
     return (
       <div className={styles.dashboard}>
-        <TeacherAiWorkroom />
+        <CreateAssignment />
       </div>
     );
   }

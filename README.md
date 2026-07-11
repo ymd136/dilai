@@ -39,3 +39,40 @@ DilAI; eğitim kurumlarının, dil kurslarının ve üniversitelerin TOEFL, YDS,
 
 * **Product Backlog URL:** [Miro Backlog Board]([https://miro.com/](https://miro.com/welcomeonboard/SzlTejhXOWhobTZUcFFBSnR2bVpYcnlDVnpGZG1PSENQTDdiMStMaHBGZ3JKZVpqNlE3Uit0SnFpNlVBV2xGcm1YU1BKZG12SWVsRTZXK2E1Qjc2VVFtL3VlTVZ2c01IQkRVdXNzeDh6UGcySnlSV2tkcW9Pbi9YSUlDdHA3Mk1NakdSWkpBejJWRjJhRnhhb1UwcS9BPT0hdjE=?share_link_id=783393346761))
 * **Güncel Süreç:** Sprint 1
+
+---
+
+## 🏃‍♂️ Sprint 1
+
+Bu sprint kapsamında projenin temel altyapısı kurulmuş, yetkilendirme sistemleri geliştirilmiş ve kullanıcı arayüzlerinin ilk versiyonları tamamlanmıştır.
+
+### 🛠 Kullanılan Teknolojiler ve Araçlar
+* **Frontend:** Next.js, React, CSS Modules
+* **Backend & Veritabanı:** Prisma ORM, PostgreSQL
+* **Kimlik Doğrulama (Auth):** Better Auth
+* **Proje Yönetimi:** Jira (Görev takibi ve sprint yönetimi)
+* **İletişim & Toplantılar:** Google Meet (Daily Scrum ve Planlama)
+
+### 📈 Proje Yönetimi ve Süreç
+**Backlog Düzeni ve Görev Dağılımı:** 
+Sprint planlamasında görevler Jira üzerinden yönetilmiş ve iş kalemleri (User Story'ler) alt task'lere bölünerek ekip üyelerine atanmıştır. Görev önceliklendirmeleri (Highest, High, Medium) yapılarak sprint hedefine uygun bir iş akışı sağlanmıştır.
+
+**Daily Scrum & İletişim:** 
+Ekip içi iletişim ve günlük (Daily Scrum) toplantıları zaman verimliliğini artırmak adına Google Meet üzerinden gerçekleştirilmektedir. Alınan kararlar ve güncellemeler eşzamanlı olarak Jira board'una yansıtılmaktadır.
+
+**Sprint Board:**
+<!-- Lütfen Jira Sprint Board görselini buraya sürükleyip bırakın -->
+*(Jira Board Görseli Buraya Gelecek)*
+
+### ✨ Tamamlanan Geliştirmeler
+Bu sprint içerisinde tamamlanan başlıca geliştirmeler şunlardır:
+
+1. **Landing Page & Login Sistemi:** Platformun tanıtım sayfası (Landing Page) ve güvenli giriş/kayıt (Login) ekranları tasarlandı ve entegre edildi.
+   <!-- Lütfen Landing Page ve Login Ekranı görsellerini buraya sürükleyip bırakın -->
+   *(Landing & Login Görselleri Buraya Gelecek)*
+
+2. **Yönetici (Admin) Panelleri:** Süper Admin ve Kurum Yönetim panelleri geliştirildi. Sistem yöneticileri için kurum ekleme, kurum yöneticileri için de eğitmen/öğrenci takip altyapısı sağlandı.
+   <!-- Lütfen Admin ve Kurum Paneli görsellerini buraya sürükleyip bırakın -->
+   *(Admin Panelleri Görselleri Buraya Gelecek)*
+
+3. **Dashboard Altyapısı ve Ar-Ge:** Kullanıcıların giriş sonrasında görecekleri panellerin tasarımları tamamlandı ve ses-metin dönüştürme (Speech-to-Text) sürecinin Ar-Ge çalışmaları başlatıldı.

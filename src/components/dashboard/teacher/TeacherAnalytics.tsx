@@ -1,8 +1,9 @@
 "use client";
 
 import { useDashboard } from "@/contexts/DashboardContext";
-import { getAnalyticsByExam } from "@/lib/mocks/teacherData";
+import { getAnalyticsByExam, getClassesByExam } from "@/lib/mocks/teacherData";
 import { MOCK_EXAM_OPTIONS } from "@/lib/mocks/examOptions";
+import { MOCK_TOPIC_ERROR_RATES } from "@/lib/mocks/studentMockData";
 import styles from "./TeacherAnalytics.module.css";
 
 function buildLinePath(values: number[], width: number, height: number): string {
@@ -25,9 +26,16 @@ function buildAreaPath(values: number[], width: number, height: number): string 
   return `${line} L ${width} ${height} L 0 ${height} Z`;
 }
 
+function getScoreClass(score: number): string {
+  if (score >= 80) return styles.miniScoreHigh;
+  if (score >= 60) return styles.miniScoreMid;
+  return styles.miniScoreLow;
+}
+
 export default function TeacherAnalytics() {
   const { selectedExam, examColor } = useDashboard();
   const data = getAnalyticsByExam(selectedExam);
+  const classes = getClassesByExam(selectedExam);
 
   const examLabel =
     MOCK_EXAM_OPTIONS.find((e) => e.id === selectedExam)?.name ?? selectedExam;
@@ -37,6 +45,7 @@ export default function TeacherAnalytics() {
   const linePath = buildLinePath(data.weeklyTrend, chartWidth, chartHeight);
   const areaPath = buildAreaPath(data.weeklyTrend, chartWidth, chartHeight);
   const maxBar = Math.max(...data.sectionScores.map((s) => s.value));
+  const maxError = Math.max(...MOCK_TOPIC_ERROR_RATES.map((e) => e.errorRate));
 
   return (
     <div className={`${styles.analytics} animate-fade-in-up`} id="teacher-analytics">
@@ -50,6 +59,7 @@ export default function TeacherAnalytics() {
         </p>
       </div>
 
+      {/* Stat Cards */}
       <div className={styles.statGrid}>
         <article className={`glass-card ${styles.statCard} ${styles.featured}`}>
           <span className={styles.statLabel}>Sınıf Ortalama Gelişim Skoru</span>
@@ -86,6 +96,7 @@ export default function TeacherAnalytics() {
         </article>
       </div>
 
+      {/* Charts */}
       <div className={styles.chartGrid}>
         <article className={`glass-card ${styles.chartCard}`}>
           <div>
@@ -151,6 +162,92 @@ export default function TeacherAnalytics() {
             ))}
           </div>
         </article>
+      </div>
+
+      {/* Topic Error Analysis */}
+      <div className={styles.errorSection}>
+        <div>
+          <h3 className="section-title" style={{ fontSize: "var(--text-2xl)" }}>
+            🔍 En Çok Hata Yapılan <span className="text-gradient">Konular</span>
+          </h3>
+          <p className="section-subtitle" style={{ fontSize: "var(--text-sm)" }}>
+            Öğrencilerin en sık hata yaptığı dilbilgisi ve kelime konuları.
+          </p>
+        </div>
+
+        <div className="glass-card" style={{ padding: "var(--space-6)" }}>
+          <div className={styles.errorBars}>
+            {MOCK_TOPIC_ERROR_RATES.map((item) => (
+              <div key={item.topic} className={styles.errorBarRow}>
+                <span className={styles.errorBarLabel}>{item.topic}</span>
+                <div className={styles.errorBarTrack}>
+                  <div
+                    className={`${styles.errorBarFill} ${
+                      item.errorRate < 25 ? styles.errorBarFillLow : ""
+                    }`}
+                    style={{ width: `${(item.errorRate / maxError) * 100}%` }}
+                  />
+                </div>
+                <span className={styles.errorBarValue}>%{item.errorRate}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      {/* Student Performance Table */}
+      <div className={styles.errorSection}>
+        <div>
+          <h3 className="section-title" style={{ fontSize: "var(--text-2xl)" }}>
+            👥 Öğrenci <span className="text-gradient">Performansları</span>
+          </h3>
+          <p className="section-subtitle" style={{ fontSize: "var(--text-sm)" }}>
+            {examLabel} formatındaki sınıflardaki öğrencilerin ilerleme durumu.
+          </p>
+        </div>
+
+        <div className="glass-card" style={{ padding: "var(--space-6)" }}>
+          <div className={styles.studentTableWrap}>
+            <table className={styles.studentTable}>
+              <thead>
+                <tr>
+                  <th>Öğrenci</th>
+                  <th>Sınıf</th>
+                  <th>İlerleme</th>
+                  <th>Durum</th>
+                </tr>
+              </thead>
+              <tbody>
+                {classes.flatMap((cls) =>
+                  cls.students.map((student) => (
+                    <tr key={student.id}>
+                      <td>
+                        <span className={styles.studentName}>{student.name}</span>
+                      </td>
+                      <td>{cls.name}</td>
+                      <td>
+                        <span
+                          className={`${styles.miniScore} ${getScoreClass(
+                            student.progressScore
+                          )}`}
+                        >
+                          %{student.progressScore}
+                        </span>
+                      </td>
+                      <td>
+                        {student.progressScore >= 80
+                          ? "🟢 İyi"
+                          : student.progressScore >= 60
+                          ? "🟡 Gelişiyor"
+                          : "🔴 Destek Gerekli"}
+                      </td>
+                    </tr>
+                  ))
+                )}
+              </tbody>
+            </table>
+          </div>
+        </div>
       </div>
     </div>
   );

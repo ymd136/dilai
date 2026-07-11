@@ -1,0 +1,2282 @@
+{
+  "speaking": [
+    {
+      "id": "spk_001",
+      "level": "B1",
+      "topic": "Daily Life",
+      "question": "Describe a typical day in your life. What activities do you usually do?",
+      "recommendedDuration": 60
+    },
+    {
+      "id": "spk_gen_0",
+      "level": "B1",
+      "topic": "Environment",
+      "question": "What are the biggest challenges facing environment today?",
+      "recommendedDuration": 60
+    },
+    {
+      "id": "spk_gen_1",
+      "level": "B2",
+      "topic": "Technology",
+      "question": "Do you think governments should invest more in technology?",
+      "recommendedDuration": 60
+    },
+    {
+      "id": "spk_gen_2",
+      "level": "C1",
+      "topic": "Education",
+      "question": "In what ways can individuals contribute to better education?",
+      "recommendedDuration": 120
+    },
+    {
+      "id": "spk_gen_3",
+      "level": "C2",
+      "topic": "Health",
+      "question": "In what ways can individuals contribute to better health?",
+      "recommendedDuration": 120
+    },
+    {
+      "id": "spk_gen_4",
+      "level": "B1",
+      "topic": "Science",
+      "question": "What role does science play in education?",
+      "recommendedDuration": 60
+    },
+    {
+      "id": "spk_gen_5",
+      "level": "B2",
+      "topic": "Society",
+      "question": "What role does society play in education?",
+      "recommendedDuration": 60
+    },
+    {
+      "id": "spk_gen_6",
+      "level": "C1",
+      "topic": "Economy",
+      "question": "How does economy affect our daily lives?",
+      "recommendedDuration": 120
+    },
+    {
+      "id": "spk_gen_7",
+      "level": "C2",
+      "topic": "Culture",
+      "question": "What role does culture play in education?",
+      "recommendedDuration": 120
+    },
+    {
+      "id": "spk_gen_8",
+      "level": "B1",
+      "topic": "Travel",
+      "question": "What are the biggest challenges facing travel today?",
+      "recommendedDuration": 60
+    },
+    {
+      "id": "spk_gen_9",
+      "level": "B2",
+      "topic": "Work",
+      "question": "What are the biggest challenges facing work today?",
+      "recommendedDuration": 60
+    },
+    {
+      "id": "spk_gen_10",
+      "level": "C1",
+      "topic": "Art",
+      "question": "What role does art play in education?",
+      "recommendedDuration": 120
+    },
+    {
+      "id": "spk_gen_11",
+      "level": "C2",
+      "topic": "Media",
+      "question": "How has media changed over the last 20 years?",
+      "recommendedDuration": 120
+    },
+    {
+      "id": "spk_gen_12",
+      "level": "B1",
+      "topic": "Sports",
+      "question": "What are the biggest challenges facing sports today?",
+      "recommendedDuration": 60
+    },
+    {
+      "id": "spk_gen_13",
+      "level": "B2",
+      "topic": "Politics",
+      "question": "What is your opinion on the impact of politics in modern society?",
+      "recommendedDuration": 60
+    },
+    {
+      "id": "spk_gen_14",
+      "level": "C1",
+      "topic": "History",
+      "question": "Describe a recent development in history that you find interesting.",
+      "recommendedDuration": 120
+    },
+    {
+      "id": "spk_gen_15",
+      "level": "C2",
+      "topic": "Environment",
+      "question": "Do you think governments should invest more in environment?",
+      "recommendedDuration": 120
+    },
+    {
+      "id": "spk_gen_16",
+      "level": "B1",
+      "topic": "Technology",
+      "question": "In what ways can individuals contribute to better technology?",
+      "recommendedDuration": 60
+    },
+    {
+      "id": "spk_gen_17",
+      "level": "B2",
+      "topic": "Education",
+      "question": "What role does education play in education?",
+      "recommendedDuration": 60
+    },
+    {
+      "id": "spk_gen_18",
+      "level": "C1",
+      "topic": "Health",
+      "question": "How does health affect our daily lives?",
+      "recommendedDuration": 120
+    },
+    {
+      "id": "spk_gen_19",
+      "level": "C2",
+      "topic": "Science",
+      "question": "What are the biggest challenges facing science today?",
+      "recommendedDuration": 120
+    },
+    {
+      "id": "spk_gen_20",
+      "level": "B1",
+      "topic": "Society",
+      "question": "What are the biggest challenges facing society today?",
+      "recommendedDuration": 60
+    },
+    {
+      "id": "spk_gen_21",
+      "level": "B2",
+      "topic": "Economy",
+      "question": "What role does economy play in education?",
+      "recommendedDuration": 60
+    },
+    {
+      "id": "spk_gen_22",
+      "level": "C1",
+      "topic": "Culture",
+      "question": "How does culture affect our daily lives?",
+      "recommendedDuration": 120
+    },
+    {
+      "id": "spk_gen_23",
+      "level": "C2",
+      "topic": "Travel",
+      "question": "Discuss the pros and cons of recent trends in travel.",
+      "recommendedDuration": 120
+    },
+    {
+      "id": "spk_gen_24",
+      "level": "B1",
+      "topic": "Work",
+      "question": "Do you think governments should invest more in work?",
+      "recommendedDuration": 60
+    },
+    {
+      "id": "spk_gen_25",
+      "level": "B2",
+      "topic": "Art",
+      "question": "Do you think governments should invest more in art?",
+      "recommendedDuration": 60
+    },
+    {
+      "id": "spk_gen_26",
+      "level": "C1",
+      "topic": "Media",
+      "question": "What are the biggest challenges facing media today?",
+      "recommendedDuration": 120
+    },
+    {
+      "id": "spk_gen_27",
+      "level": "C2",
+      "topic": "Sports",
+      "question": "Predict the future of sports in the next century.",
+      "recommendedDuration": 120
+    },
+    {
+      "id": "spk_gen_28",
+      "level": "B1",
+      "topic": "Politics",
+      "question": "Describe a recent development in politics that you find interesting.",
+      "recommendedDuration": 60
+    },
+    {
+      "id": "spk_gen_29",
+      "level": "B2",
+      "topic": "History",
+      "question": "Describe a recent development in history that you find interesting.",
+      "recommendedDuration": 60
+    },
+    {
+      "id": "spk_gen_30",
+      "level": "C1",
+      "topic": "Environment",
+      "question": "What are the biggest challenges facing environment today?",
+      "recommendedDuration": 120
+    },
+    {
+      "id": "spk_gen_31",
+      "level": "C2",
+      "topic": "Technology",
+      "question": "How has technology changed over the last 20 years?",
+      "recommendedDuration": 120
+    },
+    {
+      "id": "spk_gen_32",
+      "level": "B1",
+      "topic": "Education",
+      "question": "What is your opinion on the impact of education in modern society?",
+      "recommendedDuration": 60
+    },
+    {
+      "id": "spk_gen_33",
+      "level": "B2",
+      "topic": "Health",
+      "question": "Discuss the pros and cons of recent trends in health.",
+      "recommendedDuration": 60
+    },
+    {
+      "id": "spk_gen_34",
+      "level": "C1",
+      "topic": "Science",
+      "question": "What is your opinion on the impact of science in modern society?",
+      "recommendedDuration": 120
+    },
+    {
+      "id": "spk_gen_35",
+      "level": "C2",
+      "topic": "Society",
+      "question": "What are the biggest challenges facing society today?",
+      "recommendedDuration": 120
+    },
+    {
+      "id": "spk_gen_36",
+      "level": "B1",
+      "topic": "Economy",
+      "question": "What are the biggest challenges facing economy today?",
+      "recommendedDuration": 60
+    },
+    {
+      "id": "spk_gen_37",
+      "level": "B2",
+      "topic": "Culture",
+      "question": "Describe a recent development in culture that you find interesting.",
+      "recommendedDuration": 60
+    },
+    {
+      "id": "spk_gen_38",
+      "level": "C1",
+      "topic": "Travel",
+      "question": "In what ways can individuals contribute to better travel?",
+      "recommendedDuration": 120
+    },
+    {
+      "id": "spk_gen_39",
+      "level": "C2",
+      "topic": "Work",
+      "question": "How does work affect our daily lives?",
+      "recommendedDuration": 120
+    },
+    {
+      "id": "spk_gen_40",
+      "level": "B1",
+      "topic": "Art",
+      "question": "What is your opinion on the impact of art in modern society?",
+      "recommendedDuration": 60
+    },
+    {
+      "id": "spk_gen_41",
+      "level": "B2",
+      "topic": "Media",
+      "question": "Describe a recent development in media that you find interesting.",
+      "recommendedDuration": 60
+    },
+    {
+      "id": "spk_gen_42",
+      "level": "C1",
+      "topic": "Sports",
+      "question": "What role does sports play in education?",
+      "recommendedDuration": 120
+    },
+    {
+      "id": "spk_gen_43",
+      "level": "C2",
+      "topic": "Politics",
+      "question": "Do you think governments should invest more in politics?",
+      "recommendedDuration": 120
+    },
+    {
+      "id": "spk_gen_44",
+      "level": "B1",
+      "topic": "History",
+      "question": "Discuss the pros and cons of recent trends in history.",
+      "recommendedDuration": 60
+    },
+    {
+      "id": "spk_gen_45",
+      "level": "B2",
+      "topic": "Environment",
+      "question": "What are the biggest challenges facing environment today?",
+      "recommendedDuration": 60
+    },
+    {
+      "id": "spk_gen_46",
+      "level": "C1",
+      "topic": "Technology",
+      "question": "How does technology affect our daily lives?",
+      "recommendedDuration": 120
+    },
+    {
+      "id": "spk_gen_47",
+      "level": "C2",
+      "topic": "Education",
+      "question": "How has education changed over the last 20 years?",
+      "recommendedDuration": 120
+    },
+    {
+      "id": "spk_gen_48",
+      "level": "B1",
+      "topic": "Health",
+      "question": "What is your opinion on the impact of health in modern society?",
+      "recommendedDuration": 60
+    },
+    {
+      "id": "spk_gen_49",
+      "level": "B2",
+      "topic": "Science",
+      "question": "In what ways can individuals contribute to better science?",
+      "recommendedDuration": 60
+    }
+  ],
+  "writing": [
+    {
+      "id": "wrt_001",
+      "level": "B2",
+      "topic": "Environment",
+      "question": "Many people believe that protecting the environment is the responsibility of the government, while others think individuals should take action. Discuss both views and give your opinion.",
+      "minWords": 250
+    },
+    {
+      "id": "wrt_gen_0",
+      "level": "B1",
+      "topic": "Environment",
+      "question": "Discuss the role of education in promoting environment.",
+      "minWords": 200
+    },
+    {
+      "id": "wrt_gen_1",
+      "level": "B2",
+      "topic": "Technology",
+      "question": "Compare and contrast the traditional and modern approaches to technology.",
+      "minWords": 200
+    },
+    {
+      "id": "wrt_gen_2",
+      "level": "C1",
+      "topic": "Education",
+      "question": "Evaluate the impact of government policies on education.",
+      "minWords": 300
+    },
+    {
+      "id": "wrt_gen_3",
+      "level": "C2",
+      "topic": "Health",
+      "question": "Evaluate the impact of government policies on health.",
+      "minWords": 300
+    },
+    {
+      "id": "wrt_gen_4",
+      "level": "B1",
+      "topic": "Science",
+      "question": "To what extent do you agree that technological advancements have improved science?",
+      "minWords": 200
+    },
+    {
+      "id": "wrt_gen_5",
+      "level": "B2",
+      "topic": "Society",
+      "question": "How does social media influence our perception of society?",
+      "minWords": 200
+    },
+    {
+      "id": "wrt_gen_6",
+      "level": "C1",
+      "topic": "Economy",
+      "question": "How does social media influence our perception of economy?",
+      "minWords": 300
+    },
+    {
+      "id": "wrt_gen_7",
+      "level": "C2",
+      "topic": "Culture",
+      "question": "Compare and contrast the traditional and modern approaches to culture.",
+      "minWords": 300
+    },
+    {
+      "id": "wrt_gen_8",
+      "level": "B1",
+      "topic": "Travel",
+      "question": "How does social media influence our perception of travel?",
+      "minWords": 200
+    },
+    {
+      "id": "wrt_gen_9",
+      "level": "B2",
+      "topic": "Work",
+      "question": "In many countries, work is becoming increasingly important. Why is this the case?",
+      "minWords": 200
+    },
+    {
+      "id": "wrt_gen_10",
+      "level": "C1",
+      "topic": "Art",
+      "question": "Evaluate the impact of government policies on art.",
+      "minWords": 300
+    },
+    {
+      "id": "wrt_gen_11",
+      "level": "C2",
+      "topic": "Media",
+      "question": "Write a persuasive essay arguing for more funding in media.",
+      "minWords": 300
+    },
+    {
+      "id": "wrt_gen_12",
+      "level": "B1",
+      "topic": "Sports",
+      "question": "To what extent do you agree that technological advancements have improved sports?",
+      "minWords": 200
+    },
+    {
+      "id": "wrt_gen_13",
+      "level": "B2",
+      "topic": "Politics",
+      "question": "Compare and contrast the traditional and modern approaches to politics.",
+      "minWords": 200
+    },
+    {
+      "id": "wrt_gen_14",
+      "level": "C1",
+      "topic": "History",
+      "question": "Write an essay on the effects of globalization on history.",
+      "minWords": 300
+    },
+    {
+      "id": "wrt_gen_15",
+      "level": "C2",
+      "topic": "Environment",
+      "question": "In many countries, environment is becoming increasingly important. Why is this the case?",
+      "minWords": 300
+    },
+    {
+      "id": "wrt_gen_16",
+      "level": "B1",
+      "topic": "Technology",
+      "question": "Compare and contrast the traditional and modern approaches to technology.",
+      "minWords": 200
+    },
+    {
+      "id": "wrt_gen_17",
+      "level": "B2",
+      "topic": "Education",
+      "question": "Evaluate the impact of government policies on education.",
+      "minWords": 200
+    },
+    {
+      "id": "wrt_gen_18",
+      "level": "C1",
+      "topic": "Health",
+      "question": "Compare and contrast the traditional and modern approaches to health.",
+      "minWords": 300
+    },
+    {
+      "id": "wrt_gen_19",
+      "level": "C2",
+      "topic": "Science",
+      "question": "In many countries, science is becoming increasingly important. Why is this the case?",
+      "minWords": 300
+    },
+    {
+      "id": "wrt_gen_20",
+      "level": "B1",
+      "topic": "Society",
+      "question": "Write an essay on the effects of globalization on society.",
+      "minWords": 200
+    },
+    {
+      "id": "wrt_gen_21",
+      "level": "B2",
+      "topic": "Economy",
+      "question": "Some people believe that economy is the most important issue of our time, while others disagree. Discuss both views and give your opinion.",
+      "minWords": 200
+    },
+    {
+      "id": "wrt_gen_22",
+      "level": "C1",
+      "topic": "Culture",
+      "question": "To what extent do you agree that technological advancements have improved culture?",
+      "minWords": 300
+    },
+    {
+      "id": "wrt_gen_23",
+      "level": "C2",
+      "topic": "Travel",
+      "question": "Discuss the role of education in promoting travel.",
+      "minWords": 300
+    },
+    {
+      "id": "wrt_gen_24",
+      "level": "B1",
+      "topic": "Work",
+      "question": "In many countries, work is becoming increasingly important. Why is this the case?",
+      "minWords": 200
+    },
+    {
+      "id": "wrt_gen_25",
+      "level": "B2",
+      "topic": "Art",
+      "question": "Compare and contrast the traditional and modern approaches to art.",
+      "minWords": 200
+    },
+    {
+      "id": "wrt_gen_26",
+      "level": "C1",
+      "topic": "Media",
+      "question": "What are the main causes of problems related to media and how can they be solved?",
+      "minWords": 300
+    },
+    {
+      "id": "wrt_gen_27",
+      "level": "C2",
+      "topic": "Sports",
+      "question": "Evaluate the impact of government policies on sports.",
+      "minWords": 300
+    },
+    {
+      "id": "wrt_gen_28",
+      "level": "B1",
+      "topic": "Politics",
+      "question": "Write a persuasive essay arguing for more funding in politics.",
+      "minWords": 200
+    },
+    {
+      "id": "wrt_gen_29",
+      "level": "B2",
+      "topic": "History",
+      "question": "In many countries, history is becoming increasingly important. Why is this the case?",
+      "minWords": 200
+    },
+    {
+      "id": "wrt_gen_30",
+      "level": "C1",
+      "topic": "Environment",
+      "question": "Write a persuasive essay arguing for more funding in environment.",
+      "minWords": 300
+    },
+    {
+      "id": "wrt_gen_31",
+      "level": "C2",
+      "topic": "Technology",
+      "question": "Compare and contrast the traditional and modern approaches to technology.",
+      "minWords": 300
+    },
+    {
+      "id": "wrt_gen_32",
+      "level": "B1",
+      "topic": "Education",
+      "question": "How does social media influence our perception of education?",
+      "minWords": 200
+    },
+    {
+      "id": "wrt_gen_33",
+      "level": "B2",
+      "topic": "Health",
+      "question": "What are the main causes of problems related to health and how can they be solved?",
+      "minWords": 200
+    },
+    {
+      "id": "wrt_gen_34",
+      "level": "C1",
+      "topic": "Science",
+      "question": "What are the main causes of problems related to science and how can they be solved?",
+      "minWords": 300
+    },
+    {
+      "id": "wrt_gen_35",
+      "level": "C2",
+      "topic": "Society",
+      "question": "Some people believe that society is the most important issue of our time, while others disagree. Discuss both views and give your opinion.",
+      "minWords": 300
+    },
+    {
+      "id": "wrt_gen_36",
+      "level": "B1",
+      "topic": "Economy",
+      "question": "Write an essay on the effects of globalization on economy.",
+      "minWords": 200
+    },
+    {
+      "id": "wrt_gen_37",
+      "level": "B2",
+      "topic": "Culture",
+      "question": "Evaluate the impact of government policies on culture.",
+      "minWords": 200
+    },
+    {
+      "id": "wrt_gen_38",
+      "level": "C1",
+      "topic": "Travel",
+      "question": "Write an essay on the effects of globalization on travel.",
+      "minWords": 300
+    },
+    {
+      "id": "wrt_gen_39",
+      "level": "C2",
+      "topic": "Work",
+      "question": "Compare and contrast the traditional and modern approaches to work.",
+      "minWords": 300
+    },
+    {
+      "id": "wrt_gen_40",
+      "level": "B1",
+      "topic": "Art",
+      "question": "In many countries, art is becoming increasingly important. Why is this the case?",
+      "minWords": 200
+    },
+    {
+      "id": "wrt_gen_41",
+      "level": "B2",
+      "topic": "Media",
+      "question": "Discuss the role of education in promoting media.",
+      "minWords": 200
+    },
+    {
+      "id": "wrt_gen_42",
+      "level": "C1",
+      "topic": "Sports",
+      "question": "Write an essay on the effects of globalization on sports.",
+      "minWords": 300
+    },
+    {
+      "id": "wrt_gen_43",
+      "level": "C2",
+      "topic": "Politics",
+      "question": "Write a persuasive essay arguing for more funding in politics.",
+      "minWords": 300
+    },
+    {
+      "id": "wrt_gen_44",
+      "level": "B1",
+      "topic": "History",
+      "question": "Write an essay on the effects of globalization on history.",
+      "minWords": 200
+    },
+    {
+      "id": "wrt_gen_45",
+      "level": "B2",
+      "topic": "Environment",
+      "question": "Some people believe that environment is the most important issue of our time, while others disagree. Discuss both views and give your opinion.",
+      "minWords": 200
+    },
+    {
+      "id": "wrt_gen_46",
+      "level": "C1",
+      "topic": "Technology",
+      "question": "Write a persuasive essay arguing for more funding in technology.",
+      "minWords": 300
+    },
+    {
+      "id": "wrt_gen_47",
+      "level": "C2",
+      "topic": "Education",
+      "question": "How does social media influence our perception of education?",
+      "minWords": 300
+    },
+    {
+      "id": "wrt_gen_48",
+      "level": "B1",
+      "topic": "Health",
+      "question": "Some people believe that health is the most important issue of our time, while others disagree. Discuss both views and give your opinion.",
+      "minWords": 200
+    },
+    {
+      "id": "wrt_gen_49",
+      "level": "B2",
+      "topic": "Science",
+      "question": "Compare and contrast the traditional and modern approaches to science.",
+      "minWords": 200
+    }
+  ],
+  "multiple_choice": [
+    {
+      "id": "mc_1",
+      "level": "A1",
+      "topic": "General",
+      "question": "Hello, what ____ your name?",
+      "options": [
+        "am",
+        "is",
+        "are",
+        "be"
+      ],
+      "correctAnswer": "is"
+    },
+    {
+      "id": "mc_2",
+      "level": "A1",
+      "topic": "General",
+      "question": "I ____ a student.",
+      "options": [
+        "is",
+        "am",
+        "are",
+        "do"
+      ],
+      "correctAnswer": "am"
+    },
+    {
+      "id": "mc_3",
+      "level": "A1",
+      "topic": "General",
+      "question": "____ you from Turkey?",
+      "options": [
+        "Is",
+        "Are",
+        "Do",
+        "Am"
+      ],
+      "correctAnswer": "Are"
+    },
+    {
+      "id": "mc_4",
+      "level": "A1",
+      "topic": "General",
+      "question": "My brother ____ to the gym every day.",
+      "options": [
+        "go",
+        "goes",
+        "going",
+        "gone"
+      ],
+      "correctAnswer": "goes"
+    },
+    {
+      "id": "mc_5",
+      "level": "A1",
+      "topic": "General",
+      "question": "There ____ three apples on the table.",
+      "options": [
+        "is",
+        "am",
+        "are",
+        "have"
+      ],
+      "correctAnswer": "are"
+    },
+    {
+      "id": "mc_6",
+      "level": "A1",
+      "topic": "General",
+      "question": "I don't have ____ milk in the fridge.",
+      "options": [
+        "some",
+        "any",
+        "a",
+        "an"
+      ],
+      "correctAnswer": "any"
+    },
+    {
+      "id": "mc_7",
+      "level": "A1",
+      "topic": "General",
+      "question": "She ____ a red car.",
+      "options": [
+        "have",
+        "has",
+        "is",
+        "does"
+      ],
+      "correctAnswer": "has"
+    },
+    {
+      "id": "mc_8",
+      "level": "A1",
+      "topic": "General",
+      "question": "Where ____ you live?",
+      "options": [
+        "do",
+        "does",
+        "are",
+        "is"
+      ],
+      "correctAnswer": "do"
+    },
+    {
+      "id": "mc_9",
+      "level": "A1",
+      "topic": "General",
+      "question": "Can you ____ the piano?",
+      "options": [
+        "play",
+        "plays",
+        "playing",
+        "to play"
+      ],
+      "correctAnswer": "play"
+    },
+    {
+      "id": "mc_10",
+      "level": "A1",
+      "topic": "General",
+      "question": "These are my ____.",
+      "options": [
+        "book",
+        "books",
+        "a book",
+        "of books"
+      ],
+      "correctAnswer": "books"
+    },
+    {
+      "id": "mc_11",
+      "level": "A1",
+      "topic": "General",
+      "question": "My birthday is ____ May.",
+      "options": [
+        "in",
+        "on",
+        "at",
+        "to"
+      ],
+      "correctAnswer": "in"
+    },
+    {
+      "id": "mc_12",
+      "level": "A1",
+      "topic": "General",
+      "question": "____ is that man? He is my uncle.",
+      "options": [
+        "What",
+        "Where",
+        "Who",
+        "How"
+      ],
+      "correctAnswer": "Who"
+    },
+    {
+      "id": "mc_13",
+      "level": "A1",
+      "topic": "General",
+      "question": "I usually get up ____ 7 o'clock.",
+      "options": [
+        "in",
+        "at",
+        "on",
+        "by"
+      ],
+      "correctAnswer": "at"
+    },
+    {
+      "id": "mc_14",
+      "level": "A1",
+      "topic": "General",
+      "question": "Is this ____ pen?",
+      "options": [
+        "you",
+        "your",
+        "yours",
+        "you're"
+      ],
+      "correctAnswer": "your"
+    },
+    {
+      "id": "mc_15",
+      "level": "A1",
+      "topic": "General",
+      "question": "We ____ to the cinema last night.",
+      "options": [
+        "go",
+        "goes",
+        "went",
+        "gone"
+      ],
+      "correctAnswer": "went"
+    },
+    {
+      "id": "mc_16",
+      "level": "A1",
+      "topic": "General",
+      "question": "Look! It ____.",
+      "options": [
+        "rain",
+        "rains",
+        "is raining",
+        "rained"
+      ],
+      "correctAnswer": "is raining"
+    },
+    {
+      "id": "mc_17",
+      "level": "A1",
+      "topic": "General",
+      "question": "I like ____ oranges.",
+      "options": [
+        "this",
+        "that",
+        "these",
+        "much"
+      ],
+      "correctAnswer": "these"
+    },
+    {
+      "id": "mc_18",
+      "level": "A1",
+      "topic": "General",
+      "question": "How ____ is this shirt?",
+      "options": [
+        "many",
+        "much",
+        "old",
+        "long"
+      ],
+      "correctAnswer": "much"
+    },
+    {
+      "id": "mc_19",
+      "level": "A1",
+      "topic": "General",
+      "question": "Please sit ____.",
+      "options": [
+        "up",
+        "down",
+        "in",
+        "on"
+      ],
+      "correctAnswer": "down"
+    },
+    {
+      "id": "mc_20",
+      "level": "A1",
+      "topic": "General",
+      "question": "I have two ____.",
+      "options": [
+        "child",
+        "childrens",
+        "children",
+        "childs"
+      ],
+      "correctAnswer": "children"
+    },
+    {
+      "id": "mc_21",
+      "level": "A2",
+      "topic": "General",
+      "question": "I ____ seen that movie before.",
+      "options": [
+        "haven't",
+        "don't",
+        "didn't",
+        "wasn't"
+      ],
+      "correctAnswer": "haven't"
+    },
+    {
+      "id": "mc_22",
+      "level": "A2",
+      "topic": "General",
+      "question": "Tokyo is ____ than London.",
+      "options": [
+        "big",
+        "bigger",
+        "biggest",
+        "more big"
+      ],
+      "correctAnswer": "bigger"
+    },
+    {
+      "id": "mc_23",
+      "level": "A2",
+      "topic": "General",
+      "question": "If it rains, I ____ at home.",
+      "options": [
+        "stay",
+        "will stay",
+        "stayed",
+        "would stay"
+      ],
+      "correctAnswer": "will stay"
+    },
+    {
+      "id": "mc_24",
+      "level": "A2",
+      "topic": "General",
+      "question": "You ____ smoke here; it's forbidden.",
+      "options": [
+        "mustn't",
+        "shouldn't",
+        "don't have to",
+        "can"
+      ],
+      "correctAnswer": "mustn't"
+    },
+    {
+      "id": "mc_25",
+      "level": "A2",
+      "topic": "General",
+      "question": "I was walking when I ____ her.",
+      "options": [
+        "see",
+        "saw",
+        "seen",
+        "was seeing"
+      ],
+      "correctAnswer": "saw"
+    },
+    {
+      "id": "mc_26",
+      "level": "A2",
+      "topic": "General",
+      "question": "Have you ____ been to Paris?",
+      "options": [
+        "never",
+        "ever",
+        "yet",
+        "already"
+      ],
+      "correctAnswer": "ever"
+    },
+    {
+      "id": "mc_27",
+      "level": "A2",
+      "topic": "General",
+      "question": "This cake was ____ by my mother.",
+      "options": [
+        "make",
+        "made",
+        "making",
+        "makes"
+      ],
+      "correctAnswer": "made"
+    },
+    {
+      "id": "mc_28",
+      "level": "A2",
+      "topic": "General",
+      "question": "I am interested ____ learning English.",
+      "options": [
+        "in",
+        "on",
+        "at",
+        "about"
+      ],
+      "correctAnswer": "in"
+    },
+    {
+      "id": "mc_29",
+      "level": "A2",
+      "topic": "General",
+      "question": "He is the ____ student in the class.",
+      "options": [
+        "good",
+        "better",
+        "best",
+        "goodest"
+      ],
+      "correctAnswer": "best"
+    },
+    {
+      "id": "mc_30",
+      "level": "A2",
+      "topic": "General",
+      "question": "What ____ you do yesterday?",
+      "options": [
+        "do",
+        "did",
+        "done",
+        "were"
+      ],
+      "correctAnswer": "did"
+    },
+    {
+      "id": "mc_31",
+      "level": "A2",
+      "topic": "General",
+      "question": "I'm going to ____ a doctor.",
+      "options": [
+        "be",
+        "am",
+        "is",
+        "are"
+      ],
+      "correctAnswer": "be"
+    },
+    {
+      "id": "mc_32",
+      "level": "A2",
+      "topic": "General",
+      "question": "She speaks English ____.",
+      "options": [
+        "good",
+        "well",
+        "better",
+        "best"
+      ],
+      "correctAnswer": "well"
+    },
+    {
+      "id": "mc_33",
+      "level": "A2",
+      "topic": "General",
+      "question": "Would you like ____ coffee?",
+      "options": [
+        "any",
+        "some",
+        "a",
+        "few"
+      ],
+      "correctAnswer": "some"
+    },
+    {
+      "id": "mc_34",
+      "level": "A2",
+      "topic": "General",
+      "question": "I ____ to work by bus.",
+      "options": [
+        "go",
+        "goes",
+        "am going",
+        "gone"
+      ],
+      "correctAnswer": "go"
+    },
+    {
+      "id": "mc_35",
+      "level": "A2",
+      "topic": "General",
+      "question": "The keys are ____ the drawer.",
+      "options": [
+        "in",
+        "on",
+        "at",
+        "between"
+      ],
+      "correctAnswer": "in"
+    },
+    {
+      "id": "mc_36",
+      "level": "A2",
+      "topic": "General",
+      "question": "____ you like to dance?",
+      "options": [
+        "Do",
+        "Would",
+        "Are",
+        "Can"
+      ],
+      "correctAnswer": "Would"
+    },
+    {
+      "id": "mc_37",
+      "level": "A2",
+      "topic": "General",
+      "question": "I've been working here ____ three years.",
+      "options": [
+        "for",
+        "since",
+        "during",
+        "at"
+      ],
+      "correctAnswer": "for"
+    },
+    {
+      "id": "mc_38",
+      "level": "A2",
+      "topic": "General",
+      "question": "He didn't ____ his homework.",
+      "options": [
+        "do",
+        "does",
+        "did",
+        "done"
+      ],
+      "correctAnswer": "do"
+    },
+    {
+      "id": "mc_39",
+      "level": "A2",
+      "topic": "General",
+      "question": "Whose bag is this? It's ____.",
+      "options": [
+        "me",
+        "mine",
+        "my",
+        "I"
+      ],
+      "correctAnswer": "mine"
+    },
+    {
+      "id": "mc_40",
+      "level": "A2",
+      "topic": "General",
+      "question": "We ____ a great holiday last summer.",
+      "options": [
+        "have",
+        "had",
+        "has",
+        "having"
+      ],
+      "correctAnswer": "had"
+    },
+    {
+      "id": "mc_41",
+      "level": "B1",
+      "topic": "General",
+      "question": "I ____ my keys. Can you help me find them?",
+      "options": [
+        "lost",
+        "have lost",
+        "lose",
+        "had lost"
+      ],
+      "correctAnswer": "have lost"
+    },
+    {
+      "id": "mc_42",
+      "level": "B1",
+      "topic": "General",
+      "question": "If I ____ you, I would take that job.",
+      "options": [
+        "am",
+        "was",
+        "were",
+        "be"
+      ],
+      "correctAnswer": "were"
+    },
+    {
+      "id": "mc_43",
+      "level": "B1",
+      "topic": "General",
+      "question": "The letter ____ sent two days ago.",
+      "options": [
+        "is",
+        "was",
+        "has been",
+        "was being"
+      ],
+      "correctAnswer": "was"
+    },
+    {
+      "id": "mc_44",
+      "level": "B1",
+      "topic": "General",
+      "question": "I look forward to ____ you soon.",
+      "options": [
+        "see",
+        "seeing",
+        "seen",
+        "to see"
+      ],
+      "correctAnswer": "seeing"
+    },
+    {
+      "id": "mc_45",
+      "level": "B1",
+      "topic": "General",
+      "question": "He asked me where ____.",
+      "options": [
+        "do I live",
+        "I lived",
+        "did I live",
+        "I live"
+      ],
+      "correctAnswer": "I lived"
+    },
+    {
+      "id": "mc_46",
+      "level": "B1",
+      "topic": "General",
+      "question": "You ____ finish the report today; tomorrow is fine.",
+      "options": [
+        "mustn't",
+        "don't have to",
+        "shouldn't",
+        "can't"
+      ],
+      "correctAnswer": "don't have to"
+    },
+    {
+      "id": "mc_47",
+      "level": "B1",
+      "topic": "General",
+      "question": "By the time I arrived, the train ____.",
+      "options": [
+        "leaves",
+        "has left",
+        "had left",
+        "left"
+      ],
+      "correctAnswer": "had left"
+    },
+    {
+      "id": "mc_48",
+      "level": "B1",
+      "topic": "General",
+      "question": "I'm used to ____ early.",
+      "options": [
+        "get up",
+        "getting up",
+        "got up",
+        "gets up"
+      ],
+      "correctAnswer": "getting up"
+    },
+    {
+      "id": "mc_49",
+      "level": "B1",
+      "topic": "General",
+      "question": "I wish I ____ more money.",
+      "options": [
+        "have",
+        "had",
+        "has",
+        "having"
+      ],
+      "correctAnswer": "had"
+    },
+    {
+      "id": "mc_50",
+      "level": "B1",
+      "topic": "General",
+      "question": "This is the man ____ son won the prize.",
+      "options": [
+        "who",
+        "whose",
+        "whom",
+        "which"
+      ],
+      "correctAnswer": "whose"
+    },
+    {
+      "id": "mc_51",
+      "level": "B1",
+      "topic": "General",
+      "question": "Although it was cold, ____ they went swimming.",
+      "options": [
+        "but",
+        "-",
+        "so",
+        "however"
+      ],
+      "correctAnswer": "-"
+    },
+    {
+      "id": "mc_52",
+      "level": "B1",
+      "topic": "General",
+      "question": "I'll call you as soon as I ____.",
+      "options": [
+        "arrive",
+        "will arrive",
+        "arriving",
+        "arrived"
+      ],
+      "correctAnswer": "arrive"
+    },
+    {
+      "id": "mc_53",
+      "level": "B1",
+      "topic": "General",
+      "question": "You should avoid ____ sugar.",
+      "options": [
+        "eat",
+        "eating",
+        "to eat",
+        "eaten"
+      ],
+      "correctAnswer": "eating"
+    },
+    {
+      "id": "mc_54",
+      "level": "B1",
+      "topic": "General",
+      "question": "He's the person ____ I told you about.",
+      "options": [
+        "who",
+        "which",
+        "whose",
+        "what"
+      ],
+      "correctAnswer": "who"
+    },
+    {
+      "id": "mc_55",
+      "level": "B1",
+      "topic": "General",
+      "question": "This house ____ in 1920.",
+      "options": [
+        "built",
+        "was built",
+        "has been built",
+        "is built"
+      ],
+      "correctAnswer": "was built"
+    },
+    {
+      "id": "mc_56",
+      "level": "B1",
+      "topic": "General",
+      "question": "Neither Tom ____ Jerry was there.",
+      "options": [
+        "or",
+        "nor",
+        "and",
+        "but"
+      ],
+      "correctAnswer": "nor"
+    },
+    {
+      "id": "mc_57",
+      "level": "B1",
+      "topic": "General",
+      "question": "It's time we ____.",
+      "options": [
+        "go",
+        "went",
+        "going",
+        "to go"
+      ],
+      "correctAnswer": "went"
+    },
+    {
+      "id": "mc_58",
+      "level": "B1",
+      "topic": "General",
+      "question": "I'd rather ____ at home tonight.",
+      "options": [
+        "stay",
+        "to stay",
+        "staying",
+        "stayed"
+      ],
+      "correctAnswer": "stay"
+    },
+    {
+      "id": "mc_59",
+      "level": "B1",
+      "topic": "General",
+      "question": "I managed ____ the exam.",
+      "options": [
+        "pass",
+        "passing",
+        "to pass",
+        "passed"
+      ],
+      "correctAnswer": "to pass"
+    },
+    {
+      "id": "mc_60",
+      "level": "B1",
+      "topic": "General",
+      "question": "She ____ be tired; she's been working all day.",
+      "options": [
+        "can",
+        "must",
+        "may",
+        "might"
+      ],
+      "correctAnswer": "must"
+    },
+    {
+      "id": "mc_61",
+      "level": "B2",
+      "topic": "General",
+      "question": "Rarely ____ such a beautiful sunset.",
+      "options": [
+        "I have seen",
+        "have I seen",
+        "did I see",
+        "I saw"
+      ],
+      "correctAnswer": "have I seen"
+    },
+    {
+      "id": "mc_62",
+      "level": "B2",
+      "topic": "General",
+      "question": "I ____ my car repaired tomorrow.",
+      "options": [
+        "have",
+        "am having",
+        "will have",
+        "get"
+      ],
+      "correctAnswer": "am having"
+    },
+    {
+      "id": "mc_63",
+      "level": "B2",
+      "topic": "General",
+      "question": "Suppose you ____ the lottery, what would you do?",
+      "options": [
+        "win",
+        "won",
+        "had won",
+        "wins"
+      ],
+      "correctAnswer": "won"
+    },
+    {
+      "id": "mc_64",
+      "level": "B2",
+      "topic": "General",
+      "question": "Not only ____ fast, but he also plays well.",
+      "options": [
+        "he runs",
+        "does he run",
+        "he is running",
+        "runs he"
+      ],
+      "correctAnswer": "does he run"
+    },
+    {
+      "id": "mc_65",
+      "level": "B2",
+      "topic": "General",
+      "question": "I'd rather you ____ tell him the truth.",
+      "options": [
+        "don't",
+        "didn't",
+        "won't",
+        "not"
+      ],
+      "correctAnswer": "didn't"
+    },
+    {
+      "id": "mc_66",
+      "level": "B2",
+      "topic": "General",
+      "question": "By next year, I ____ my degree.",
+      "options": [
+        "will finish",
+        "will have finished",
+        "finish",
+        "finished"
+      ],
+      "correctAnswer": "will have finished"
+    },
+    {
+      "id": "mc_67",
+      "level": "B2",
+      "topic": "General",
+      "question": "It's no use ____ about it now.",
+      "options": [
+        "complain",
+        "complaining",
+        "to complain",
+        "complained"
+      ],
+      "correctAnswer": "complaining"
+    },
+    {
+      "id": "mc_68",
+      "level": "B2",
+      "topic": "General",
+      "question": "They ____ have forgotten about the meeting.",
+      "options": [
+        "must",
+        "should",
+        "can",
+        "ought"
+      ],
+      "correctAnswer": "must"
+    },
+    {
+      "id": "mc_69",
+      "level": "B2",
+      "topic": "General",
+      "question": "Despite ____ hard, he failed the test.",
+      "options": [
+        "study",
+        "studying",
+        "he studied",
+        "to study"
+      ],
+      "correctAnswer": "studying"
+    },
+    {
+      "id": "mc_70",
+      "level": "B2",
+      "topic": "General",
+      "question": "I regret ____ you that your application was rejected.",
+      "options": [
+        "inform",
+        "informing",
+        "to inform",
+        "informed"
+      ],
+      "correctAnswer": "to inform"
+    },
+    {
+      "id": "mc_71",
+      "level": "B2",
+      "topic": "General",
+      "question": "If he ____ more careful, the accident wouldn't have happened.",
+      "options": [
+        "was",
+        "is",
+        "had been",
+        "has been"
+      ],
+      "correctAnswer": "had been"
+    },
+    {
+      "id": "mc_72",
+      "level": "B2",
+      "topic": "General",
+      "question": "The city ____ I grew up is very small.",
+      "options": [
+        "which",
+        "where",
+        "that",
+        "who"
+      ],
+      "correctAnswer": "where"
+    },
+    {
+      "id": "mc_73",
+      "level": "B2",
+      "topic": "General",
+      "question": "I'm thinking ____ buying a new house.",
+      "options": [
+        "of",
+        "about",
+        "on",
+        "at"
+      ],
+      "correctAnswer": "of"
+    },
+    {
+      "id": "mc_74",
+      "level": "B2",
+      "topic": "General",
+      "question": "The steak was ____ tough to eat.",
+      "options": [
+        "too",
+        "enough",
+        "so",
+        "very"
+      ],
+      "correctAnswer": "too"
+    },
+    {
+      "id": "mc_75",
+      "level": "B2",
+      "topic": "General",
+      "question": "Neither of the candidates ____ suitable.",
+      "options": [
+        "is",
+        "are",
+        "be",
+        "being"
+      ],
+      "correctAnswer": "is"
+    },
+    {
+      "id": "mc_76",
+      "level": "B2",
+      "topic": "General",
+      "question": "He works ____ a waiter.",
+      "options": [
+        "as",
+        "like",
+        "such",
+        "as if"
+      ],
+      "correctAnswer": "as"
+    },
+    {
+      "id": "mc_77",
+      "level": "B2",
+      "topic": "General",
+      "question": "You ____ better see a doctor.",
+      "options": [
+        "had",
+        "would",
+        "should",
+        "could"
+      ],
+      "correctAnswer": "had"
+    },
+    {
+      "id": "mc_78",
+      "level": "B2",
+      "topic": "General",
+      "question": "Only after the match ____ how tired he was.",
+      "options": [
+        "he realized",
+        "did he realize",
+        "he did realize",
+        "realized he"
+      ],
+      "correctAnswer": "did he realize"
+    },
+    {
+      "id": "mc_79",
+      "level": "B2",
+      "topic": "General",
+      "question": "I suggested ____ to the park.",
+      "options": [
+        "go",
+        "going",
+        "to go",
+        "goes"
+      ],
+      "correctAnswer": "going"
+    },
+    {
+      "id": "mc_80",
+      "level": "B2",
+      "topic": "General",
+      "question": "It ____ have been John; he is in New York.",
+      "options": [
+        "can't",
+        "mustn't",
+        "shouldn't",
+        "may not"
+      ],
+      "correctAnswer": "can't"
+    },
+    {
+      "id": "mc_81",
+      "level": "C1",
+      "topic": "General",
+      "question": "Had I known, I ____ differently.",
+      "options": [
+        "would act",
+        "would have acted",
+        "acted",
+        "will act"
+      ],
+      "correctAnswer": "would have acted"
+    },
+    {
+      "id": "mc_82",
+      "level": "C1",
+      "topic": "General",
+      "question": "I'd sooner you ____ smoking in here.",
+      "options": [
+        "stop",
+        "stopped",
+        "will stop",
+        "stopping"
+      ],
+      "correctAnswer": "stopped"
+    },
+    {
+      "id": "mc_83",
+      "level": "C1",
+      "topic": "General",
+      "question": "Little ____ that he was being watched.",
+      "options": [
+        "he knew",
+        "did he know",
+        "knew he",
+        "he did know"
+      ],
+      "correctAnswer": "did he know"
+    },
+    {
+      "id": "mc_84",
+      "level": "C1",
+      "topic": "General",
+      "question": "He acts as if he ____ the boss.",
+      "options": [
+        "is",
+        "were",
+        "will be",
+        "has been"
+      ],
+      "correctAnswer": "were"
+    },
+    {
+      "id": "mc_85",
+      "level": "C1",
+      "topic": "General",
+      "question": "Under no circumstances ____ leave this room.",
+      "options": [
+        "you should",
+        "should you",
+        "you must",
+        "must you"
+      ],
+      "correctAnswer": "should you"
+    },
+    {
+      "id": "mc_86",
+      "level": "C1",
+      "topic": "General",
+      "question": "I found the book ____ interesting.",
+      "options": [
+        "quite",
+        "fairly",
+        "rather",
+        "immensely"
+      ],
+      "correctAnswer": "immensely"
+    },
+    {
+      "id": "mc_87",
+      "level": "C1",
+      "topic": "General",
+      "question": "The project, ____ successful, will change everything.",
+      "options": [
+        "were it to be",
+        "if it will be",
+        "being",
+        "it is"
+      ],
+      "correctAnswer": "were it to be"
+    },
+    {
+      "id": "mc_88",
+      "level": "C1",
+      "topic": "General",
+      "question": "I was ____ the point of leaving when she called.",
+      "options": [
+        "at",
+        "on",
+        "in",
+        "to"
+      ],
+      "correctAnswer": "on"
+    },
+    {
+      "id": "mc_89",
+      "level": "C1",
+      "topic": "General",
+      "question": "Provided ____ you work hard, you will succeed.",
+      "options": [
+        "that",
+        "if",
+        "whether",
+        "unless"
+      ],
+      "correctAnswer": "that"
+    },
+    {
+      "id": "mc_90",
+      "level": "C1",
+      "topic": "General",
+      "question": "He is believed ____ the country.",
+      "options": [
+        "leave",
+        "to leave",
+        "to have left",
+        "leaving"
+      ],
+      "correctAnswer": "to have left"
+    },
+    {
+      "id": "mc_91",
+      "level": "C1",
+      "topic": "General",
+      "question": "____ it not for your help, I would have failed.",
+      "options": [
+        "Was",
+        "Were",
+        "Had",
+        "If"
+      ],
+      "correctAnswer": "Were"
+    },
+    {
+      "id": "mc_92",
+      "level": "C1",
+      "topic": "General",
+      "question": "I'm afraid I've ____ out of bread.",
+      "options": [
+        "run",
+        "gone",
+        "walked",
+        "stayed"
+      ],
+      "correctAnswer": "run"
+    },
+    {
+      "id": "mc_93",
+      "level": "C1",
+      "topic": "General",
+      "question": "No sooner had I sat down ____ the phone rang.",
+      "options": [
+        "when",
+        "than",
+        "then",
+        "that"
+      ],
+      "correctAnswer": "than"
+    },
+    {
+      "id": "mc_94",
+      "level": "C1",
+      "topic": "General",
+      "question": "It is essential that he ____ present.",
+      "options": [
+        "is",
+        "be",
+        "was",
+        "were"
+      ],
+      "correctAnswer": "be"
+    },
+    {
+      "id": "mc_95",
+      "level": "C1",
+      "topic": "General",
+      "question": "Try ____ he might, he couldn't open the door.",
+      "options": [
+        "as",
+        "how",
+        "however",
+        "though"
+      ],
+      "correctAnswer": "as"
+    },
+    {
+      "id": "mc_96",
+      "level": "C1",
+      "topic": "General",
+      "question": "The company is on the ____ of bankruptcy.",
+      "options": [
+        "edge",
+        "verge",
+        "border",
+        "limit"
+      ],
+      "correctAnswer": "verge"
+    },
+    {
+      "id": "mc_97",
+      "level": "C1",
+      "topic": "General",
+      "question": "Such ____ the intensity of the storm that trees fell.",
+      "options": [
+        "is",
+        "was",
+        "were",
+        "be"
+      ],
+      "correctAnswer": "was"
+    },
+    {
+      "id": "mc_98",
+      "level": "C1",
+      "topic": "General",
+      "question": "He took the job ____ to gain experience.",
+      "options": [
+        "so as",
+        "in order",
+        "with a view",
+        "due"
+      ],
+      "correctAnswer": "so as"
+    },
+    {
+      "id": "mc_99",
+      "level": "C1",
+      "topic": "General",
+      "question": "We need to ____ account for all possibilities.",
+      "options": [
+        "take",
+        "make",
+        "give",
+        "get"
+      ],
+      "correctAnswer": "take"
+    },
+    {
+      "id": "mc_100",
+      "level": "C1",
+      "topic": "General",
+      "question": "It's high time you ____ for a job.",
+      "options": [
+        "start looking",
+        "started looking",
+        "look",
+        "to look"
+      ],
+      "correctAnswer": "started looking"
+    },
+    {
+      "id": "mc_101",
+      "level": "C2",
+      "topic": "General",
+      "question": "Scarcely ____ the meeting started when the fire alarm went off.",
+      "options": [
+        "had",
+        "did",
+        "has",
+        "would"
+      ],
+      "correctAnswer": "had"
+    },
+    {
+      "id": "mc_102",
+      "level": "C2",
+      "topic": "General",
+      "question": "He is a person of ____ integrity.",
+      "options": [
+        "unimpeachable",
+        "unreachable",
+        "untouchable",
+        "unbreakable"
+      ],
+      "correctAnswer": "unimpeachable"
+    },
+    {
+      "id": "mc_103",
+      "level": "C2",
+      "topic": "General",
+      "question": "The result was ____ of what we expected.",
+      "options": [
+        "antithetical",
+        "opposite",
+        "contrary",
+        "inverse"
+      ],
+      "correctAnswer": "antithetical"
+    },
+    {
+      "id": "mc_104",
+      "level": "C2",
+      "topic": "General",
+      "question": "She has an ____ ability to predict market trends.",
+      "options": [
+        "uncanny",
+        "unusual",
+        "unlikely",
+        "unknown"
+      ],
+      "correctAnswer": "uncanny"
+    },
+    {
+      "id": "mc_105",
+      "level": "C2",
+      "topic": "General",
+      "question": "Were it not for his ____, the company would have folded.",
+      "options": [
+        "persistence",
+        "persisting",
+        "persist",
+        "persisted"
+      ],
+      "correctAnswer": "persistence"
+    },
+    {
+      "id": "mc_106",
+      "level": "C2",
+      "topic": "General",
+      "question": "The speaker's voice was barely ____ above the noise.",
+      "options": [
+        "audible",
+        "edible",
+        "visible",
+        "credible"
+      ],
+      "correctAnswer": "audible"
+    },
+    {
+      "id": "mc_107",
+      "level": "C2",
+      "topic": "General",
+      "question": "He was ____ by the complexity of the task.",
+      "options": [
+        "daunted",
+        "excited",
+        "pleased",
+        "amused"
+      ],
+      "correctAnswer": "daunted"
+    },
+    {
+      "id": "mc_108",
+      "level": "C2",
+      "topic": "General",
+      "question": "The treaty was ____ by all parties involved.",
+      "options": [
+        "ratified",
+        "rectified",
+        "identified",
+        "satisfied"
+      ],
+      "correctAnswer": "ratified"
+    },
+    {
+      "id": "mc_109",
+      "level": "C2",
+      "topic": "General",
+      "question": "There is a ____ of evidence to support his claim.",
+      "options": [
+        "dearth",
+        "wealth",
+        "lack",
+        "plenty"
+      ],
+      "correctAnswer": "dearth"
+    },
+    {
+      "id": "mc_110",
+      "level": "C2",
+      "topic": "General",
+      "question": "Her argument was ____ and well-reasoned.",
+      "options": [
+        "cogent",
+        "urgent",
+        "diligent",
+        "negligent"
+      ],
+      "correctAnswer": "cogent"
+    },
+    {
+      "id": "mc_111",
+      "level": "C2",
+      "topic": "General",
+      "question": "He was found guilty of ____ after lying in court.",
+      "options": [
+        "perjury",
+        "forgery",
+        "bribery",
+        "robbery"
+      ],
+      "correctAnswer": "perjury"
+    },
+    {
+      "id": "mc_112",
+      "level": "C2",
+      "topic": "General",
+      "question": "The city was ____ by the invading army.",
+      "options": [
+        "besieged",
+        "believed",
+        "behaved",
+        "bestowed"
+      ],
+      "correctAnswer": "besieged"
+    },
+    {
+      "id": "mc_113",
+      "level": "C2",
+      "topic": "General",
+      "question": "His performance was ____ with that of a professional.",
+      "options": [
+        "commensurate",
+        "compatible",
+        "comparable",
+        "consistent"
+      ],
+      "correctAnswer": "commensurate"
+    },
+    {
+      "id": "mc_114",
+      "level": "C2",
+      "topic": "General",
+      "question": "The implications of the decision are ____.",
+      "options": [
+        "far-reaching",
+        "far-fetched",
+        "far-flung",
+        "far-off"
+      ],
+      "correctAnswer": "far-reaching"
+    },
+    {
+      "id": "mc_115",
+      "level": "C2",
+      "topic": "General",
+      "question": "He is ____ to making hasty decisions.",
+      "options": [
+        "prone",
+        "likely",
+        "ready",
+        "open"
+      ],
+      "correctAnswer": "prone"
+    },
+    {
+      "id": "mc_116",
+      "level": "C2",
+      "topic": "General",
+      "question": "The news came as a ____ to the community.",
+      "options": [
+        "bombshell",
+        "firework",
+        "explosion",
+        "disaster"
+      ],
+      "correctAnswer": "bombshell"
+    },
+    {
+      "id": "mc_117",
+      "level": "C2",
+      "topic": "General",
+      "question": "He has a ____ for getting into trouble.",
+      "options": [
+        "propensity",
+        "proclivity",
+        "tendency",
+        "penchant"
+      ],
+      "correctAnswer": "propensity"
+    },
+    {
+      "id": "mc_118",
+      "level": "C2",
+      "topic": "General",
+      "question": "The laws were ____ to reflect modern values.",
+      "options": [
+        "amended",
+        "abandoned",
+        "abolished",
+        "adopted"
+      ],
+      "correctAnswer": "amended"
+    },
+    {
+      "id": "mc_119",
+      "level": "C2",
+      "topic": "General",
+      "question": "He was ____ with the task of leading the team.",
+      "options": [
+        "entrusted",
+        "endowed",
+        "enforced",
+        "engaged"
+      ],
+      "correctAnswer": "entrusted"
+    },
+    {
+      "id": "mc_120",
+      "level": "C2",
+      "topic": "General",
+      "question": "The meeting was ____ until next week.",
+      "options": [
+        "adjourned",
+        "postponed",
+        "canceled",
+        "delayed"
+      ],
+      "correctAnswer": "adjourned"
+    }
+  ]
+}
