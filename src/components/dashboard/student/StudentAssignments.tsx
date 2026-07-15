@@ -1,57 +1,100 @@
 "use client";
 
-import { useState } from "react";
+import { useMemo, useState } from "react";
 import { EXAM_COLORS } from "@/types/exam";
 import {
-  MOCK_STUDENT_ASSIGNMENTS,
   type StudentAssignment,
   type StudentAssignmentStatus,
+  type StudentAssignmentType,
+  classNameToId,
 } from "@/lib/mocks/studentMockData";
+import { useStudentAssignments } from "@/hooks/useAssignmentStore";
 import styles from "./StudentAssignments.module.css";
 
-type Tab = "pending" | "completed" | "all";
+type StatusTab = "pending" | "completed" | "all";
+type TypeFilter = "ALL" | StudentAssignmentType;
 
-const TAB_ORDER: { id: Tab; label: string }[] = [
+const STATUS_TAB_ORDER: { id: StatusTab; label: string }[] = [
   { id: "pending", label: "Bekleyen" },
   { id: "completed", label: "Tamamlanan" },
   { id: "all", label: "Tümü" },
 ];
 
+const TYPE_FILTERS: { id: TypeFilter; label: string }[] = [
+  { id: "ALL", label: "Tümü" },
+  { id: "WRITING", label: "Writing" },
+  { id: "SPEAKING", label: "Speaking" },
+  { id: "MULTIPLE_CHOICE", label: "Quizzes" },
+];
+
 const STATUS_LABELS: Record<StudentAssignmentStatus, string> = {
-  pending: "Bekliyor",
-  in_progress: "Devam Ediyor",
+  pending: "Yapılacak",
+  grading: "Değerlendiriliyor",
   completed: "Tamamlandı",
 };
 
-const TYPE_LABELS: Record<string, string> = {
+const TYPE_LABELS: Record<StudentAssignmentType, string> = {
   MULTIPLE_CHOICE: "Çoktan Seçmeli",
   SPEAKING: "Speaking",
   WRITING: "Writing",
 };
 
+const METRIC_LABELS: Record<string, string> = {
+  grammar: "Dilbilgisi",
+  vocabulary: "Kelime Bilgisi",
+  coherence: "Tutarlılık",
+  fluency: "Akıcılık",
+  pronunciation: "Telaffuz",
+  taskAchievement: "Görevi Tamamlama",
+};
+
 type StudentAssignmentsProps = {
   onStartAssignment?: (assignment: StudentAssignment) => void;
+  /** When set, only show assignments for this class (by name or id) */
+  classFilter?: string | null;
 };
 
 export default function StudentAssignments({
   onStartAssignment,
+  classFilter = null,
 }: StudentAssignmentsProps) {
-  const [activeTab, setActiveTab] = useState<Tab>("pending");
+  const assignments = useStudentAssignments();
+  const [activeTab, setActiveTab] = useState<StatusTab>("pending");
+  const [typeFilter, setTypeFilter] = useState<TypeFilter>("ALL");
+  const [resultsAssignment, setResultsAssignment] =
+    useState<StudentAssignment | null>(null);
 
-  const filtered =
-    activeTab === "all"
-      ? MOCK_STUDENT_ASSIGNMENTS
-      : MOCK_STUDENT_ASSIGNMENTS.filter((a) =>
-          activeTab === "pending"
-            ? a.status === "pending" || a.status === "in_progress"
-            : a.status === "completed"
-        );
+  const filtered = useMemo(() => {
+    return assignments.filter((a) => {
+      const classOk =
+        !classFilter ||
+        a.className === classFilter ||
+        classNameToId(a.className) === classFilter;
+
+      const statusOk =
+        activeTab === "all"
+          ? true
+          : activeTab === "pending"
+            ? a.status === "pending" || a.status === "grading"
+            : a.status === "completed";
+
+      const typeOk = typeFilter === "ALL" ? true : a.type === typeFilter;
+      return classOk && statusOk && typeOk;
+    });
+  }, [assignments, activeTab, typeFilter, classFilter]);
+
+  const statusClass = (status: StudentAssignmentStatus) => {
+    if (status === "completed") return styles.statusCompleted;
+    if (status === "grading") return styles.statusGrading;
+    return styles.statusPending;
+  };
 
   return (
     <div
       className={`${styles.assignments} animate-fade-in-up`}
       id="student-assignments"
     >
+      {!classFilter && (
       <div>
         <span className="section-label">📚 Ödevlerim</span>
         <h2 className="section-title">
@@ -61,26 +104,38 @@ export default function StudentAssignments({
           Sınıflarına atanmış ödevleri görüntüle ve çözmeye başla.
         </p>
       </div>
+      )}
 
-      {/* Tabs */}
       <div className={styles.tabs}>
-        {TAB_ORDER.map(
-          (tab) => (
-            <button
-              key={tab.id}
-              type="button"
-              className={`${styles.tab} ${
-                activeTab === tab.id ? styles.tabActive : ""
-              }`}
-              onClick={() => setActiveTab(tab.id)}
-            >
-              {tab.label}
-            </button>
-          )
-        )}
+        {STATUS_TAB_ORDER.map((tab) => (
+          <button
+            key={tab.id}
+            type="button"
+            className={`${styles.tab} ${
+              activeTab === tab.id ? styles.tabActive : ""
+            }`}
+            onClick={() => setActiveTab(tab.id)}
+          >
+            {tab.label}
+          </button>
+        ))}
       </div>
 
-      {/* Cards */}
+      <div className={styles.typePills} role="group" aria-label="Ödev tipi filtresi">
+        {TYPE_FILTERS.map((filter) => (
+          <button
+            key={filter.id}
+            type="button"
+            className={`${styles.typePill} ${
+              typeFilter === filter.id ? styles.typePillActive : ""
+            }`}
+            onClick={() => setTypeFilter(filter.id)}
+          >
+            {filter.label}
+          </button>
+        ))}
+      </div>
+
       {filtered.length === 0 ? (
         <div className={`glass-card ${styles.emptyState}`}>
           <span className={styles.emptyIcon}>📭</span>
@@ -93,27 +148,21 @@ export default function StudentAssignments({
         <div className={styles.cardGrid}>
           {filtered.map((assignment) => {
             const examColor = EXAM_COLORS[assignment.examType];
-            const statusClass =
-              assignment.status === "completed"
-                ? styles.statusCompleted
-                : assignment.status === "in_progress"
-                ? styles.statusInProgress
-                : styles.statusPending;
 
             return (
               <article
                 key={assignment.id}
                 className={`glass-card ${styles.assignmentCard}`}
-                style={
-                  { "--exam-color": examColor } as React.CSSProperties
-                }
+                style={{ "--exam-color": examColor } as React.CSSProperties}
               >
                 <div className={styles.cardHeader}>
                   <div>
                     <h3 className={styles.cardTitle}>{assignment.title}</h3>
                     <p className={styles.cardClass}>{assignment.className}</p>
                   </div>
-                  <span className={`${styles.statusBadge} ${statusClass}`}>
+                  <span
+                    className={`${styles.statusBadge} ${statusClass(assignment.status)}`}
+                  >
                     {STATUS_LABELS[assignment.status]}
                   </span>
                 </div>
@@ -144,11 +193,22 @@ export default function StudentAssignments({
                     </span>
                   </div>
 
-                  {assignment.status === "completed" && assignment.score ? (
+                  {assignment.status === "grading" ? (
+                    <span className={styles.gradingHint}>AI puanlıyor…</span>
+                  ) : assignment.status === "completed" ? (
                     <div className={styles.scoreDisplay}>
-                      <span className={styles.scoreBadge}>
-                        %{assignment.score}
-                      </span>
+                      {assignment.score != null && (
+                        <span className={styles.scoreBadge}>
+                          %{assignment.score}
+                        </span>
+                      )}
+                      <button
+                        type="button"
+                        className={styles.startBtn}
+                        onClick={() => setResultsAssignment(assignment)}
+                      >
+                        Sonuçları Gör
+                      </button>
                     </div>
                   ) : (
                     <button
@@ -163,6 +223,94 @@ export default function StudentAssignments({
               </article>
             );
           })}
+        </div>
+      )}
+
+      {resultsAssignment?.aiAnalysis && (
+        <div
+          className={styles.modalOverlay}
+          role="dialog"
+          aria-modal="true"
+          aria-labelledby="results-modal-title"
+          onClick={() => setResultsAssignment(null)}
+        >
+          <div
+            className={`glass-card ${styles.modalPanel}`}
+            onClick={(e) => e.stopPropagation()}
+          >
+            <div className={styles.modalHeader}>
+              <div>
+                <h3 id="results-modal-title" className={styles.modalTitle}>
+                  AI Değerlendirme Sonuçları
+                </h3>
+                <p className={styles.modalSubtitle}>{resultsAssignment.title}</p>
+              </div>
+              <button
+                type="button"
+                className={styles.modalClose}
+                onClick={() => setResultsAssignment(null)}
+                aria-label="Kapat"
+              >
+                ✕
+              </button>
+            </div>
+
+            <div className={styles.modalScoreRow}>
+              <div className={styles.modalScoreBlock}>
+                <span className={styles.modalScoreValue}>
+                  %{resultsAssignment.aiAnalysis.score}
+                </span>
+                <span className={styles.modalScoreLabel}>Genel Puan</span>
+              </div>
+              <div className={styles.modalCefr}>
+                <span className={styles.modalCefrLabel}>CEFR Seviyesi</span>
+                <span className={styles.modalCefrValue}>
+                  {resultsAssignment.aiAnalysis.cefrLevel}
+                </span>
+              </div>
+            </div>
+
+            <div className={styles.metricGrid}>
+              {Object.entries(resultsAssignment.aiAnalysis.metrics).map(
+                ([key, value]) =>
+                  value != null ? (
+                    <div key={key} className={styles.metricItem}>
+                      <div className={styles.metricHeader}>
+                        <span>{METRIC_LABELS[key] ?? key}</span>
+                        <strong>{value}</strong>
+                      </div>
+                      <div className={styles.metricBar}>
+                        <div
+                          className={styles.metricBarFill}
+                          style={{ width: `${value}%` }}
+                        />
+                      </div>
+                    </div>
+                  ) : null
+              )}
+            </div>
+
+            <div className={styles.feedbackBlock}>
+              <h4>Dilbilgisi</h4>
+              <p>{resultsAssignment.aiAnalysis.grammarFeedback}</p>
+            </div>
+            <div className={styles.feedbackBlock}>
+              <h4>Kelime Bilgisi</h4>
+              <p>{resultsAssignment.aiAnalysis.vocabularyFeedback}</p>
+            </div>
+            <div className={styles.feedbackBlock}>
+              <h4>Genel Değerlendirme</h4>
+              <p>{resultsAssignment.aiAnalysis.generalReview}</p>
+            </div>
+
+            <button
+              type="button"
+              className={`btn btn-primary ${styles.modalAction}`}
+              onClick={() => setResultsAssignment(null)}
+            >
+              Kapat
+            </button>
+          </div>
         </div>
       )}
     </div>

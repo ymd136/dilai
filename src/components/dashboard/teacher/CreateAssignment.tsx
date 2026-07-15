@@ -2,7 +2,7 @@
 
 import { useState, useMemo } from "react";
 import { useDashboard } from "@/contexts/DashboardContext";
-import { MOCK_TEACHER_CLASSES } from "@/lib/mocks/teacherData";
+import { useTeacherClasses } from "@/hooks/useAssignmentStore";
 import questionsData from "@/lib/mocks/questions.json";
 import type {
   QuestionLevel,
@@ -26,6 +26,7 @@ type AnyQuestion = SpeakingQuestion | WritingQuestion | MultipleChoiceQuestion;
 
 export default function CreateAssignment() {
   const { selectedExam } = useDashboard();
+  const allClasses = useTeacherClasses();
   const [selectedClass, setSelectedClass] = useState("");
   const [assignmentType, setAssignmentType] =
     useState<AssignmentTypeOption>("MULTIPLE_CHOICE");
@@ -36,9 +37,7 @@ export default function CreateAssignment() {
   const [dueDate, setDueDate] = useState("");
   const [showSuccess, setShowSuccess] = useState(false);
 
-  const classes = MOCK_TEACHER_CLASSES.filter(
-    (cls) => cls.examType === selectedExam
-  );
+  const classes = allClasses.filter((cls) => cls.examType === selectedExam);
 
   const filteredQuestions: AnyQuestion[] = useMemo(() => {
     let pool: AnyQuestion[] = [];

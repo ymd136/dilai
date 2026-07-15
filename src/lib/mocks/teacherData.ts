@@ -3,7 +3,10 @@ import type {
   TeacherAssistantCard,
   TeacherAssignment,
   TeacherClass,
+  TeacherStudentSubmission,
 } from "@/types/teacher";
+import type { AiAnalysis } from "@/lib/mocks/studentMockData";
+import { generateMockAiAnalysis } from "@/lib/mocks/studentMockData";
 
 export const MOCK_TEACHER_CLASSES: TeacherClass[] = [
   {
@@ -74,6 +77,21 @@ export const MOCK_TEACHER_CLASSES: TeacherClass[] = [
   },
 ];
 
+function buildSubmissions(
+  items: Array<Omit<TeacherStudentSubmission, "id"> & { id?: string }>
+): TeacherStudentSubmission[] {
+  return items.map((item, index) => ({
+    id: item.id ?? `sub-${index + 1}`,
+    studentId: item.studentId,
+    studentName: item.studentName,
+    status: item.status,
+    content: item.content,
+    audioLabel: item.audioLabel,
+    submittedAt: item.submittedAt,
+    aiAnalysis: item.aiAnalysis,
+  }));
+}
+
 export const MOCK_TEACHER_ASSIGNMENTS: TeacherAssignment[] = [
   {
     id: "asg-1",
@@ -84,6 +102,54 @@ export const MOCK_TEACHER_ASSIGNMENTS: TeacherAssignment[] = [
     totalCount: 8,
     className: "TOEFL Akademik",
     dueDate: "2026-07-05",
+    submissions: buildSubmissions([
+      {
+        id: "asg1-s1",
+        studentId: "s1",
+        studentName: "Ahmet Yılmaz",
+        status: "grading",
+        audioLabel: "speaking-ahmet-recording.webm",
+        submittedAt: "2026-07-04T18:20:00Z",
+      },
+      {
+        id: "asg1-s2",
+        studentId: "s2",
+        studentName: "Elif Kaya",
+        status: "graded",
+        audioLabel: "speaking-elif-recording.webm",
+        submittedAt: "2026-07-03T14:10:00Z",
+        aiAnalysis: generateMockAiAnalysis("SPEAKING", "B2"),
+      },
+      {
+        id: "asg1-s3",
+        studentId: "s3",
+        studentName: "Can Öztürk",
+        status: "grading",
+        audioLabel: "speaking-can-recording.webm",
+        submittedAt: "2026-07-04T09:45:00Z",
+      },
+      {
+        id: "asg1-s4",
+        studentId: "s4",
+        studentName: "Zeynep Arslan",
+        status: "graded",
+        audioLabel: "speaking-zeynep-recording.webm",
+        submittedAt: "2026-07-02T16:00:00Z",
+        aiAnalysis: generateMockAiAnalysis("SPEAKING", "C1"),
+      },
+      {
+        id: "asg1-sudenaz",
+        studentId: "sudenaz",
+        studentName: "Sudenaz Şenbay",
+        status: "not_submitted",
+      },
+      {
+        id: "asg1-pending",
+        studentId: "s-pending-1",
+        studentName: "Burak Demir",
+        status: "not_submitted",
+      },
+    ]),
   },
   {
     id: "asg-2",
@@ -94,6 +160,24 @@ export const MOCK_TEACHER_ASSIGNMENTS: TeacherAssignment[] = [
     totalCount: 8,
     className: "TOEFL Akademik",
     dueDate: "2026-06-28",
+    submissions: buildSubmissions([
+      {
+        studentId: "s1",
+        studentName: "Ahmet Yılmaz",
+        status: "graded",
+        content: "Campus facilities play a critical role in student engagement...",
+        submittedAt: "2026-06-27T11:00:00Z",
+        aiAnalysis: generateMockAiAnalysis("MULTIPLE_CHOICE", "B2"),
+      },
+      {
+        studentId: "s2",
+        studentName: "Elif Kaya",
+        status: "graded",
+        content: "Libraries and labs are essential academic resources...",
+        submittedAt: "2026-06-26T10:00:00Z",
+        aiAnalysis: generateMockAiAnalysis("MULTIPLE_CHOICE", "B2"),
+      },
+    ]),
   },
   {
     id: "asg-3",
@@ -104,6 +188,28 @@ export const MOCK_TEACHER_ASSIGNMENTS: TeacherAssignment[] = [
     totalCount: 6,
     className: "TOEFL Speaking Bootcamp",
     dueDate: "2026-07-10",
+    submissions: buildSubmissions([
+      {
+        studentId: "s5",
+        studentName: "Burak Demir",
+        status: "grading",
+        audioLabel: "bootcamp-burak.webm",
+        submittedAt: "2026-07-09T12:00:00Z",
+      },
+      {
+        studentId: "s6",
+        studentName: "Selin Aydın",
+        status: "graded",
+        audioLabel: "bootcamp-selin.webm",
+        submittedAt: "2026-07-08T15:30:00Z",
+        aiAnalysis: generateMockAiAnalysis("SPEAKING", "B2"),
+      },
+      {
+        studentId: "s7",
+        studentName: "Emre Çelik",
+        status: "not_submitted",
+      },
+    ]),
   },
   {
     id: "asg-4",
@@ -114,6 +220,23 @@ export const MOCK_TEACHER_ASSIGNMENTS: TeacherAssignment[] = [
     totalCount: 12,
     className: "YDS İlkbahar Grubu",
     dueDate: "2026-07-02",
+    submissions: buildSubmissions([
+      {
+        studentId: "s8",
+        studentName: "Ayşe Yılmaz",
+        status: "graded",
+        content: "Bilim ve teknoloji çevirisinde önemli noktalar...",
+        submittedAt: "2026-07-01T13:00:00Z",
+        aiAnalysis: generateMockAiAnalysis("MULTIPLE_CHOICE", "B1"),
+      },
+      {
+        studentId: "s9",
+        studentName: "Mehmet Koç",
+        status: "grading",
+        content: "Teknolojik gelişmeler toplumsal yapıları dönüştürür...",
+        submittedAt: "2026-07-01T18:40:00Z",
+      },
+    ]),
   },
   {
     id: "asg-5",
@@ -124,6 +247,23 @@ export const MOCK_TEACHER_ASSIGNMENTS: TeacherAssignment[] = [
     totalCount: 10,
     className: "YDS Kelime Kampı",
     dueDate: "2026-07-08",
+    submissions: buildSubmissions([
+      {
+        studentId: "s12",
+        studentName: "Oğuz Kara",
+        status: "grading",
+        content: "Quiz answers submitted (MC).",
+        submittedAt: "2026-07-07T20:00:00Z",
+      },
+      {
+        studentId: "s13",
+        studentName: "Merve Ak",
+        status: "graded",
+        content: "Quiz answers submitted (MC).",
+        submittedAt: "2026-07-06T19:00:00Z",
+        aiAnalysis: generateMockAiAnalysis("MULTIPLE_CHOICE", "B1"),
+      },
+    ]),
   },
   {
     id: "asg-6",
@@ -134,6 +274,23 @@ export const MOCK_TEACHER_ASSIGNMENTS: TeacherAssignment[] = [
     totalCount: 9,
     className: "YÖKDİL Fen Bilimleri",
     dueDate: "2026-07-01",
+    submissions: buildSubmissions([
+      {
+        studentId: "s14",
+        studentName: "Kerem Polat",
+        status: "grading",
+        content: "Fen metnindeki ana fikir bilimsel yöntemdir...",
+        submittedAt: "2026-06-30T17:00:00Z",
+      },
+      {
+        studentId: "s15",
+        studentName: "Gizem Tunç",
+        status: "graded",
+        content: "Hipotez oluşturma süreci kritik bir adımdır...",
+        submittedAt: "2026-06-29T12:20:00Z",
+        aiAnalysis: generateMockAiAnalysis("WRITING", "C1"),
+      },
+    ]),
   },
   {
     id: "asg-7",
@@ -144,6 +301,27 @@ export const MOCK_TEACHER_ASSIGNMENTS: TeacherAssignment[] = [
     totalCount: 7,
     className: "YÖKDİL Sağlık Bilimleri",
     dueDate: "2026-07-12",
+    submissions: buildSubmissions([
+      {
+        studentId: "s17",
+        studentName: "Seda Yıldız",
+        status: "grading",
+        content:
+          "Healthcare terminology requires precision. Clinical communication depends on accurate vocabulary and clear structure.",
+        submittedAt: "2026-07-11T10:15:00Z",
+      },
+      {
+        studentId: "s18",
+        studentName: "Hakan Uçar",
+        status: "not_submitted",
+      },
+      {
+        id: "asg7-sudenaz",
+        studentId: "sudenaz",
+        studentName: "Sudenaz Şenbay",
+        status: "not_submitted",
+      },
+    ]),
   },
 ];
 
@@ -185,7 +363,7 @@ export const MOCK_TEACHER_ASSISTANT_CARDS: TeacherAssistantCard[] = [
     type: "create_assignment",
     title: "Yapay Zeka ile Yeni Ödev/Sınav Oluştur",
     description:
-      "YDS formatında çeviri, kelime veya okuduğunu anlama ödevi oluştur. AI otomatik rubric ve cevap anahtarı üretir.",
+      "YDS formatında kelime, dilbilgisi veya çeviri ödevi oluştur. AI, soru havuzundan uygun maddeler seçer.",
     examType: "YDS",
   },
   {
@@ -193,23 +371,22 @@ export const MOCK_TEACHER_ASSISTANT_CARDS: TeacherAssistantCard[] = [
     type: "performance_forecast",
     title: "AI Sınıf Performans Tahmini",
     description:
-      "YDS İlkbahar Grubu için genel başarı projeksiyonu ve zayıf alan optimizasyonu.",
+      "YDS İlkbahar grubunun başarı projeksiyonu ve zayıf konu analizi.",
     examType: "YDS",
     meta: {
-      projectedSuccess: "%68 → %76 (6 hafta)",
-      optimizationTip: "Kelime tekrar setleri haftalık 3 oturuma çıkarılırsa +%5 kazanç",
+      projectedSuccess: "%68 → %76 (5 hafta)",
+      optimizationTip: "Çeviri pratiği +%5 etki gösterir",
     },
   },
   {
     id: "ta-yds-vocab",
     type: "weekly_vocabulary",
     title: "Haftalık Akademik Kelime Paketi",
-    description:
-      "YDS metinlerinde geçen 20 kurumsal kelime listesi. Sınıfa toplu atama yap.",
+    description: "YDS'de sık çıkan 20 akademik kelime paketi.",
     examType: "YDS",
     meta: {
       wordCount: 20,
-      sampleWords: ["Comprehensive", "Substantial", "Preliminary", "Consequently", "Furthermore"],
+      sampleWords: ["Comprise", "Implicate", "Substantial", "Prevail", "Constitute"],
     },
   },
   {
@@ -217,31 +394,29 @@ export const MOCK_TEACHER_ASSISTANT_CARDS: TeacherAssistantCard[] = [
     type: "create_assignment",
     title: "Yapay Zeka ile Yeni Ödev/Sınav Oluştur",
     description:
-      "YÖKDİL alan metinlerine uygun okuma veya terminoloji ödevi oluştur. Fen/Sağlık alanına özel içerik üretir.",
+      "YÖKDİL alanına özel okuma ve terminoloji ödevi oluştur.",
     examType: "YOKDIL",
   },
   {
     id: "ta-yokdil-forecast",
     type: "performance_forecast",
     title: "AI Sınıf Performans Tahmini",
-    description:
-      "YÖKDİL Fen Bilimleri grubu için başarı projeksiyonu ve okuma hızı optimizasyon önerisi.",
+    description: "YÖKDİL Fen grubu başarı projeksiyonu.",
     examType: "YOKDIL",
     meta: {
-      projectedSuccess: "%71 → %79 (5 hafta)",
-      optimizationTip: "Alan terminolojisi flashcard setleri günlük 15 dk ile +%4 kazanç",
+      projectedSuccess: "%71 → %79 (4 hafta)",
+      optimizationTip: "Alan terminolojisi yoğunluğu artırılmalı",
     },
   },
   {
     id: "ta-yokdil-vocab",
     type: "weekly_vocabulary",
     title: "Haftalık Akademik Kelime Paketi",
-    description:
-      "YÖKDİL Fen Bilimleri alanına özel 12 teknik kelime paketi. Öğrencilere tek tıkla dağıt.",
+    description: "YÖKDİL Fen Bilimleri terminoloji seti.",
     examType: "YOKDIL",
     meta: {
-      wordCount: 12,
-      sampleWords: ["Hypothesis", "Variable", "Correlation", "Synthesis", "Empirical"],
+      wordCount: 18,
+      sampleWords: ["Molecule", "Hypothesis", "Synthesis", "Variable", "Protocol"],
     },
   },
 ];
@@ -261,13 +436,13 @@ export function getAssistantCardsByExam(
     (card) => card.examType === examType
   );
 
-  const order: TeacherAssistantCard["type"][] = [
+  const orderedTypes = [
     "create_assignment",
     "performance_forecast",
     "weekly_vocabulary",
-  ];
+  ] as const;
 
-  return order
+  return orderedTypes
     .map((type) => filtered.find((card) => card.type === type))
     .filter((card): card is TeacherAssistantCard => card !== undefined);
 }
@@ -481,3 +656,40 @@ export function getAiWorkroomOutput(
 export function getAnalyticsByExam(examType: ExamType): AnalyticsSnapshot {
   return MOCK_ANALYTICS[examType];
 }
+
+/** Re-export for teacher grading panel convenience */
+export type { AiAnalysis };
+
+export type TeacherInsight = {
+  id: string;
+  title: string;
+  description: string;
+  className?: string;
+  urgency: "high" | "medium" | "low";
+};
+
+export const MOCK_TEACHER_INSIGHTS: TeacherInsight[] = [
+  {
+    id: "insight-1",
+    title: "Bağlaç Zayıflığı Tespit Edildi",
+    description:
+      "YDS İlkbahar Grubu öğrencileri bağlaç kullanımında zorlanıyor. Kısa bir cloze quiz hazırlamanız önerilir.",
+    className: "YDS İlkbahar Grubu",
+    urgency: "high",
+  },
+  {
+    id: "insight-2",
+    title: "Speaking Akıcılık Fırsatı",
+    description:
+      "TOEFL Akademik grubunda konuşma ödevlerinin tamamlanma oranı yüksek. Bağımsız speaking pratiği ekleyerek skoru +%5 yükseltebilirsiniz.",
+    className: "TOEFL Akademik",
+    urgency: "medium",
+  },
+  {
+    id: "insight-3",
+    title: "Ödev Değerlendirme Bekliyor",
+    description:
+      "Birkaç teslim hâlâ AI değerlendirme kuyruğunda. Ödev Takip panelinden Yapay Zeka Analizi başlatabilirsiniz.",
+    urgency: "medium",
+  },
+];

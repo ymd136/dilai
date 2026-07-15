@@ -20,7 +20,9 @@ export type DashboardNavItem =
   | "home"
   | "classes"
   | "ai-room"
-  | "analytics";
+  | "analytics"
+  | "create-class"
+  | "assignments";
 
 type DashboardContextValue = {
   selectedExam: ExamType;
@@ -36,6 +38,10 @@ type DashboardContextValue = {
   toggleSidebar: () => void;
   activeNav: DashboardNavItem;
   setActiveNav: (nav: DashboardNavItem) => void;
+  selectedClassId: string | null;
+  setSelectedClassId: (classId: string | null) => void;
+  selectHome: () => void;
+  selectClass: (classId: string) => void;
   userRole: UserRole;
 };
 
@@ -64,7 +70,8 @@ export function DashboardProvider({
   const [isLoadingTeacherAssistants, setIsLoadingTeacherAssistants] =
     useState(false);
   const [sidebarCollapsed, setSidebarCollapsed] = useState(false);
-  const [activeNav, setActiveNav] = useState<DashboardNavItem>("home");
+  const [activeNav, setActiveNavState] = useState<DashboardNavItem>("home");
+  const [selectedClassId, setSelectedClassId] = useState<string | null>(null);
 
   useEffect(() => {
     const mq = window.matchMedia("(max-width: 768px)");
@@ -72,6 +79,23 @@ export function DashboardProvider({
   }, []);
 
   const examColor = EXAM_COLORS[selectedExam];
+
+  const setActiveNav = useCallback((nav: DashboardNavItem) => {
+    setActiveNavState(nav);
+    if (nav !== "classes") {
+      setSelectedClassId(null);
+    }
+  }, []);
+
+  const selectHome = useCallback(() => {
+    setActiveNavState("home");
+    setSelectedClassId(null);
+  }, []);
+
+  const selectClass = useCallback((classId: string) => {
+    setActiveNavState("classes");
+    setSelectedClassId(classId);
+  }, []);
 
   const refreshRecommendations = useCallback(async () => {
     if (userRole !== "STUDENT" && userRole !== "TEACHER") return;
@@ -132,6 +156,10 @@ export function DashboardProvider({
         toggleSidebar,
         activeNav,
         setActiveNav,
+        selectedClassId,
+        setSelectedClassId,
+        selectHome,
+        selectClass,
         userRole,
       }}
     >

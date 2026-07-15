@@ -5,6 +5,116 @@
   width: 100%;
 }
 
+.welcomeBanner,
+.classBanner {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  padding: var(--space-6);
+  position: relative;
+  overflow: hidden;
+}
+
+.welcomeBanner::before,
+.classBanner::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: var(--exam-color, var(--primary-500));
+}
+
+.welcomeContent {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.upcomingAlert {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  padding: var(--space-5) var(--space-6);
+  border-color: rgba(99, 102, 241, 0.25);
+  background: rgba(99, 102, 241, 0.06);
+}
+
+.upcomingHeader {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: var(--space-4);
+}
+
+.upcomingLabel {
+  display: block;
+  font-family: var(--font-display);
+  font-size: var(--text-base);
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: var(--space-1);
+}
+
+.upcomingDesc {
+  font-size: var(--text-sm);
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
+
+.upcomingCount {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 36px;
+  height: 36px;
+  padding: 0 var(--space-3);
+  border-radius: var(--radius-full);
+  background: var(--primary-gradient);
+  color: white;
+  font-size: var(--text-sm);
+  font-weight: 800;
+  flex-shrink: 0;
+  box-shadow: 0 2px 10px rgba(99, 102, 241, 0.35);
+}
+
+.upcomingList {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.upcomingItem {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--space-1);
+  width: 100%;
+  padding: var(--space-3) var(--space-4);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border-subtle);
+  background: var(--glass-bg);
+  text-align: left;
+  transition: all var(--transition-fast);
+}
+
+.upcomingItem:hover {
+  border-color: var(--border-hover);
+  background: var(--glass-bg-strong);
+}
+
+.upcomingTitle {
+  font-size: var(--text-sm);
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.upcomingMeta {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+}
+
 .placeholder {
   display: flex;
   flex-direction: column;

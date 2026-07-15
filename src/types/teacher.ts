@@ -1,4 +1,5 @@
 import type { ExamType } from "./exam";
+import type { AiAnalysis } from "@/lib/mocks/studentMockData";
 
 export type TeacherAssistantCardType =
   | "create_assignment"
@@ -38,7 +39,24 @@ export type TeacherAssignmentType =
   | "Reading"
   | "Writing"
   | "Listening"
-  | "Grammar";
+  | "Grammar"
+  | "MULTIPLE_CHOICE";
+
+export type StudentSubmissionStatus =
+  | "not_submitted"
+  | "grading"
+  | "graded";
+
+export type TeacherStudentSubmission = {
+  id: string;
+  studentId: string;
+  studentName: string;
+  status: StudentSubmissionStatus;
+  content?: string;
+  audioLabel?: string;
+  submittedAt?: string;
+  aiAnalysis?: AiAnalysis;
+};
 
 export type TeacherAssignment = {
   id: string;
@@ -49,4 +67,5 @@ export type TeacherAssignment = {
   totalCount: number;
   className: string;
   dueDate: string;
+  submissions: TeacherStudentSubmission[];
 };

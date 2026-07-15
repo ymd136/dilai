@@ -1,8 +1,9 @@
 "use client";
 
 import { useDashboard } from "@/contexts/DashboardContext";
-import { getClassesByExam, getAssignmentsByExam } from "@/lib/mocks/teacherData";
+import { getClassesByExam } from "@/lib/mocks/teacherData";
 import { MOCK_EXAM_OPTIONS } from "@/lib/mocks/examOptions";
+import { useTeacherAssignments } from "@/hooks/useAssignmentStore";
 import type { SessionUser } from "@/types/user";
 import styles from "./TeacherWelcomeBanner.module.css";
 
@@ -12,12 +13,12 @@ type TeacherWelcomeBannerProps = {
 
 export default function TeacherWelcomeBanner({ user }: TeacherWelcomeBannerProps) {
   const { selectedExam, examColor } = useDashboard();
+  const assignments = useTeacherAssignments(selectedExam);
 
   const examLabel =
     MOCK_EXAM_OPTIONS.find((e) => e.id === selectedExam)?.name ?? selectedExam;
 
   const classes = getClassesByExam(selectedExam);
-  const assignments = getAssignmentsByExam(selectedExam);
   const totalStudents = classes.reduce((sum, cls) => sum + cls.studentCount, 0);
 
   return (

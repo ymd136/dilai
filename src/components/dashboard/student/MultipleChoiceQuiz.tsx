@@ -3,24 +3,33 @@
 import { useState, useMemo } from "react";
 import questionsData from "@/lib/mocks/questions.json";
 import type { MultipleChoiceQuestion } from "@/types/question";
+import {
+  completeStudentAssignment,
+  markStudentSubmitting,
+} from "@/lib/mocks/assignmentStore";
+import { generateMockAiAnalysis } from "@/lib/mocks/studentMockData";
+import { toast } from "@/lib/toast";
 import styles from "./MultipleChoiceQuiz.module.css";
 
 type MultipleChoiceQuizProps = {
   level: string;
   questionCount?: number;
+  assignmentId?: string;
   onBack: () => void;
+  onSubmitted?: () => void;
 };
 
 export default function MultipleChoiceQuiz({
   level,
   questionCount = 10,
+  assignmentId,
   onBack,
+  onSubmitted,
 }: MultipleChoiceQuizProps) {
   const questions = useMemo(() => {
     const pool = (
       questionsData.multiple_choice as MultipleChoiceQuestion[]
     ).filter((q) => q.level === level);
-    // Shuffle and take questionCount
     const shuffled = [...pool].sort(() => Math.random() - 0.5);
     return shuffled.slice(0, questionCount);
   }, [level, questionCount]);
@@ -29,12 +38,13 @@ export default function MultipleChoiceQuiz({
   const [answers, setAnswers] = useState<Record<number, string>>({});
   const [isFinished, setIsFinished] = useState(false);
   const [showReview, setShowReview] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const currentQuestion = questions[currentIndex];
   const progress = ((currentIndex + 1) / questions.length) * 100;
 
   const selectAnswer = (answer: string) => {
-    if (isFinished) return;
+    if (isFinished || isSubmitting) return;
     setAnswers((prev) => ({ ...prev, [currentIndex]: answer }));
   };
 
@@ -50,11 +60,6 @@ export default function MultipleChoiceQuiz({
     }
   };
 
-  const finishQuiz = () => {
-    setIsFinished(true);
-  };
-
-  // Calculate results
   const correctCount = questions.reduce((acc, q, i) => {
     return acc + (answers[i] === q.correctAnswer ? 1 : 0);
   }, 0);
@@ -64,6 +69,31 @@ export default function MultipleChoiceQuiz({
       ? Math.round((correctCount / questions.length) * 100)
       : 0;
 
+  const finishQuiz = async () => {
+    if (!assignmentId) {
+      setIsFinished(true);
+      return;
+    }
+
+    setIsSubmitting(true);
+    markStudentSubmitting(assignmentId, {
+      content: `Quiz completed: ${correctCount}/${questions.length} correct`,
+    });
+
+    await new Promise((resolve) => setTimeout(resolve, 2000));
+
+    const analysis = generateMockAiAnalysis("MULTIPLE_CHOICE", level);
+    analysis.score = scorePercent;
+    analysis.metrics.taskAchievement = scorePercent;
+    completeStudentAssignment(assignmentId, analysis);
+    toast.success(
+      "Ödeviniz başarıyla gönderildi ve AI tarafından puanlandı!"
+    );
+    setIsSubmitting(false);
+    onSubmitted?.();
+    onBack();
+  };
+
   if (questions.length === 0) {
     return (
       <div className={styles.quiz}>
@@ -72,6 +102,20 @@ export default function MultipleChoiceQuiz({
         </button>
         <div className={`glass-card ${styles.resultsCard}`}>
           <p>Bu seviyede soru bulunamadı.</p>
+        </div>
+      </div>
+    );
+  }
+
+  if (isSubmitting) {
+    return (
+      <div className={`${styles.quiz} animate-fade-in-up`}>
+        <div className={`glass-card ${styles.resultsCard}`}>
+          <div className={styles.resultsIcon}>🤖</div>
+          <h2 className={styles.resultsTitle}>AI Değerlendiriyor…</h2>
+          <p style={{ color: "var(--text-muted)", fontSize: "var(--text-sm)" }}>
+            Quiz sonuçlarınız analiz ediliyor.
+          </p>
         </div>
       </div>
     );
@@ -162,7 +206,6 @@ export default function MultipleChoiceQuiz({
 
   return (
     <div className={`${styles.quiz} animate-fade-in-up`}>
-      {/* Header */}
       <div className={styles.quizHeader}>
         <button type="button" className={styles.backBtn} onClick={onBack}>
           ← Geri
@@ -180,7 +223,6 @@ export default function MultipleChoiceQuiz({
         </div>
       </div>
 
-      {/* Question */}
       <div className={`glass-card ${styles.questionCard}`}>
         <div className={styles.questionNumber}>
           Soru {currentIndex + 1} — {currentQuestion.level} /{" "}
@@ -209,7 +251,6 @@ export default function MultipleChoiceQuiz({
         </div>
       </div>
 
-      {/* Navigation */}
       <div className={styles.navButtons}>
         <button
           type="button"
@@ -226,7 +267,7 @@ export default function MultipleChoiceQuiz({
             className={styles.finishBtn}
             onClick={finishQuiz}
           >
-            Sınavı Bitir ✓
+            {assignmentId ? "Ödevi Gönder" : "Sınavı Bitir ✓"}
           </button>
         ) : (
           <button type="button" className={styles.navBtn} onClick={goNext}>

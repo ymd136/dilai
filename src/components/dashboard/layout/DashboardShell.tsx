@@ -3,6 +3,7 @@
 import type { ReactNode } from "react";
 import DashboardSidebar from "@/components/dashboard/layout/DashboardSidebar";
 import DashboardNavbar from "@/components/dashboard/layout/DashboardNavbar";
+import ToastHost from "@/components/dashboard/shared/ToastHost";
 import type { SessionUser } from "@/types/user";
 import styles from "@/styles/dashboard.module.css";
 
@@ -19,6 +20,7 @@ export default function DashboardShell({ user, children }: DashboardShellProps) 
         <DashboardNavbar user={user} />
         <main className={styles.content}>{children}</main>
       </div>
+      <ToastHost />
     </div>
   );
 }

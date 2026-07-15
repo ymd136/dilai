@@ -4,8 +4,8 @@ import {
   MOCK_STUDENT_WEEKLY_TREND,
   MOCK_STUDENT_SKILL_SCORES,
   MOCK_SUBMISSION_RESULTS,
-  MOCK_STUDENT_ASSIGNMENTS,
 } from "@/lib/mocks/studentMockData";
+import { useStudentAssignments } from "@/hooks/useAssignmentStore";
 import styles from "./StudentAnalytics.module.css";
 
 function buildLinePath(
@@ -37,6 +37,7 @@ function buildAreaPath(
 }
 
 export default function StudentAnalytics() {
+  const assignments = useStudentAssignments();
   const chartWidth = 400;
   const chartHeight = 160;
   const trendValues = MOCK_STUDENT_WEEKLY_TREND.map((t) => t.score);
@@ -44,7 +45,7 @@ export default function StudentAnalytics() {
   const areaPath = buildAreaPath(trendValues, chartWidth, chartHeight);
   const maxBar = Math.max(...MOCK_STUDENT_SKILL_SCORES.map((s) => s.value));
 
-  const completedAssignments = MOCK_STUDENT_ASSIGNMENTS.filter(
+  const completedAssignments = assignments.filter(
     (a) => a.status === "completed"
   );
   const avgScore =
@@ -90,7 +91,7 @@ export default function StudentAnalytics() {
             {completedAssignments.length}
           </span>
           <span className={styles.statHint}>
-            / {MOCK_STUDENT_ASSIGNMENTS.length} toplam
+            / {assignments.length} toplam
           </span>
         </article>
         <article className={`glass-card ${styles.statCard}`}>
@@ -209,7 +210,7 @@ export default function StudentAnalytics() {
         <h3 className={styles.recentTitle}>Son Ödev Sonuçları</h3>
         <div className={styles.recentList}>
           {MOCK_SUBMISSION_RESULTS.map((result) => {
-            const assignment = MOCK_STUDENT_ASSIGNMENTS.find(
+            const assignment = assignments.find(
               (a) => a.id === result.assignmentId
             );
             return (
