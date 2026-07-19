@@ -112,8 +112,11 @@ Bu sprint içerisinde tamamlanan başlıca geliştirmeler şunlardır:
 <img width="1918" height="882" alt="Ekran Resmi 2026-07-19 11 58 15" src="https://github.com/user-attachments/assets/875d32be-ca8e-4981-9c29-a28bd9c9bb35" />
 
 
-2. **Ödev Sistemi — Öğretmen Sayfası (KAN-15):** Öğretmenlerin öğrencilerine ödev oluşturup atayabileceği sayfa geliştirildi. Öğretmenler, ödev içeriğini tanımlayabilir, son teslim tarihini belirleyebilir ve hangi sınıfa/öğrenciye atanacağını seçebilir hale geldi.
+2. **Ödev Sistemi — Öğretmen Sayfası (KAN-15):** Geliştirilen sistemle eğitmenler; ödev içeriklerini tanımlayabilir, sınıf seçebilir ve son teslim tarihlerini belirleyebilirler. Atanan ödevlerin TOEFL, YDS ve YÖKDİL gibi sınav formatlarına göre güncel teslim durumlarını canlı bir takip matrisi üzerinden anlık izleyebilir; aktif ödev sayılarını ve bekleyen değerlendirmeleri yapay zeka destekli asistan önerileriyle birlikte merkezi bir panelden yönetebilirler.
    <!-- Lütfen öğretmen ödev atama sayfası ekran görüntüsünü buraya sürükleyip bırakın -->
+<img width="1877" height="865" alt="teacherödevtakipdalaı" src="https://github.com/user-attachments/assets/c5da2013-d5c7-43e6-964b-210e4cf56a55" />
+<img width="1856" height="896" alt="teacheransayfadilaı" src="https://github.com/user-attachments/assets/3b162907-3377-42ef-981d-452b51533e68" />
+
 
 3. **Ödev Sistemi — Eksik Soru Tamamlama (KAN-17):** Ödev sistemindeki eksik sorular tespit edilerek içerik veritabanına eklendi. Ödev akışının eksiksiz ve tutarlı çalışması için gerekli veri düzenlemeleri tamamlandı.
 
