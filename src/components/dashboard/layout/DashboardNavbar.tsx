@@ -70,7 +70,7 @@ export default function DashboardNavbar({ user }: DashboardNavbarProps) {
       </div>
 
       <div className={styles.center}>
-        <ExamSelector />
+        {user.role !== "STUDENT" && <ExamSelector />}
       </div>
 
       <div className={styles.right}>

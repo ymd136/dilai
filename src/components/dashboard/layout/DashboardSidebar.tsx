@@ -11,37 +11,18 @@ type NavEntry = {
   id: DashboardNavItem;
   label: string;
   icon: React.ReactNode;
+  hasBadge?: boolean;
 };
 
 const studentNavItems: NavEntry[] = [
   {
     id: "home",
     label: "Ana Panel",
+    hasBadge: true,
     icon: (
       <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
         <path d="M3 9.5L12 3l9 6.5V20a1 1 0 01-1 1H5a1 1 0 01-1-1V9.5z" />
         <path d="M9 21V12h6v9" />
-      </svg>
-    ),
-  },
-  {
-    id: "classes",
-    label: "Sınıflarım & Ödevlerim",
-    icon: (
-      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-        <path d="M4 19.5A2.5 2.5 0 016.5 17H20" />
-        <path d="M6.5 2H20v20H6.5A2.5 2.5 0 014 19.5v-15A2.5 2.5 0 016.5 2z" />
-      </svg>
-    ),
-  },
-  {
-    id: "ai-room",
-    label: "Yapılandırılmış AI Çalışma Odası",
-    icon: (
-      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-        <path d="M12 2a4 4 0 014 4v1h2a2 2 0 012 2v3a2 2 0 01-2 2h-1v4a4 4 0 01-8 0v-4H6a2 2 0 01-2-2V9a2 2 0 012-2h2V6a4 4 0 014-4z" />
-        <circle cx="9" cy="11" r="1" fill="currentColor" />
-        <circle cx="15" cy="11" r="1" fill="currentColor" />
       </svg>
     ),
   },
@@ -101,6 +82,7 @@ const teacherNavItems: NavEntry[] = [
 ];
 
 import type { SessionUser } from "@/types/user";
+import { MOCK_STUDENT_ASSIGNMENTS } from "@/lib/mocks/studentMockData";
 
 type DashboardSidebarProps = {
   user?: SessionUser;
@@ -235,6 +217,11 @@ export default function DashboardSidebar({ user }: DashboardSidebarProps) {
           >
             <span className={styles.navIcon}>{item.icon}</span>
             <span className={styles.navLabel}>{item.label}</span>
+            {item.hasBadge && MOCK_STUDENT_ASSIGNMENTS.filter((a) => a.status === "pending").length > 0 && !sidebarCollapsed && (
+              <span className={styles.navBadge}>
+                {MOCK_STUDENT_ASSIGNMENTS.filter((a) => a.status === "pending").length}
+              </span>
+            )}
           </button>
         ))}
       </nav>

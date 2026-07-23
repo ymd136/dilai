@@ -1,8 +1,15 @@
 "use client";
 
+import { useState, useCallback } from "react";
 import { useDashboard } from "@/contexts/DashboardContext";
 import EmptyState from "@/components/dashboard/shared/EmptyState";
+import StudentAssignments from "./StudentAssignments";
+import MultipleChoiceQuiz from "./MultipleChoiceQuiz";
+import SpeakingExercise from "./SpeakingExercise";
+import WritingExercise from "./WritingExercise";
+import StudentAnalytics from "./StudentAnalytics";
 import type { SessionUser } from "@/types/user";
+import type { StudentAssignment } from "@/lib/mocks/studentMockData";
 import styles from "./StudentDashboard.module.css";
 
 type StudentDashboardProps = {
@@ -10,35 +17,69 @@ type StudentDashboardProps = {
   hasActiveClass?: boolean;
 };
 
-function NavPlaceholder({
-  title,
-  description,
-  icon,
-}: {
-  title: string;
-  description: string;
-  icon: string;
-}) {
-  return (
-    <div className={`glass-card ${styles.placeholder}`}>
-      <span className={styles.placeholderIcon} aria-hidden="true">
-        {icon}
-      </span>
-      <h2 className={styles.placeholderTitle}>{title}</h2>
-      <p className={styles.placeholderDesc}>{description}</p>
-      <button type="button" className="btn btn-secondary">
-        Yakında
-      </button>
-    </div>
-  );
-}
+type ActiveExercise = {
+  type: "MULTIPLE_CHOICE" | "SPEAKING" | "WRITING";
+  level: string;
+  questionCount: number;
+} | null;
 
 export default function StudentDashboard({
   user,
-  hasActiveClass = false,
+  hasActiveClass = true,
 }: StudentDashboardProps) {
   const { activeNav } = useDashboard();
   const fullName = `${user.firstName} ${user.lastName}`;
+  const [activeExercise, setActiveExercise] = useState<ActiveExercise>(null);
+
+  const handleStartAssignment = useCallback(
+    (assignment: StudentAssignment) => {
+      setActiveExercise({
+        type: assignment.type,
+        level: assignment.level,
+        questionCount: assignment.questionCount,
+      });
+    },
+    []
+  );
+
+  const handleBackToAssignments = useCallback(() => {
+    setActiveExercise(null);
+  }, []);
+
+  // Always show active exercise if one is running, regardless of nav
+  if (activeExercise) {
+    if (activeExercise.type === "MULTIPLE_CHOICE") {
+      return (
+        <div className={styles.dashboard}>
+          <MultipleChoiceQuiz
+            level={activeExercise.level}
+            questionCount={activeExercise.questionCount}
+            onBack={handleBackToAssignments}
+          />
+        </div>
+      );
+    }
+    if (activeExercise.type === "SPEAKING") {
+      return (
+        <div className={styles.dashboard}>
+          <SpeakingExercise
+            level={activeExercise.level}
+            onBack={handleBackToAssignments}
+          />
+        </div>
+      );
+    }
+    if (activeExercise.type === "WRITING") {
+      return (
+        <div className={styles.dashboard}>
+          <WritingExercise
+            level={activeExercise.level}
+            onBack={handleBackToAssignments}
+          />
+        </div>
+      );
+    }
+  }
 
   if (activeNav === "home") {
     if (!hasActiveClass) {
@@ -51,46 +92,15 @@ export default function StudentDashboard({
 
     return (
       <div className={styles.dashboard} id="student-dashboard">
-        <NavPlaceholder
-          icon="📚"
-          title="Aktif Ödevlerin"
-          description="Kayıtlı olduğun sınıflardaki ödevler burada listelenecek."
-        />
+        <StudentAssignments onStartAssignment={handleStartAssignment} />
       </div>
     );
   }
 
-  if (activeNav === "classes") {
-    return (
-      <div className={styles.dashboard}>
-        <NavPlaceholder
-          icon="🏫"
-          title="Sınıflarım & Ödevlerim"
-          description="Kayıtlı olduğun sınıflar ve atanmış ödevler bu bölümde görünecek."
-        />
-      </div>
-    );
-  }
-
-  if (activeNav === "ai-room") {
-    return (
-      <div className={styles.dashboard}>
-        <NavPlaceholder
-          icon="🤖"
-          title="Yapılandırılmış AI Çalışma Odası"
-          description="AI destekli konuşma ve yazma pratiği odası yakında aktif olacak."
-        />
-      </div>
-    );
-  }
-
+  // Analytics or fallback
   return (
     <div className={styles.dashboard}>
-      <NavPlaceholder
-        icon="📈"
-        title="Gelişim Analitiği"
-        description="Performans grafiklerin ve gelişim raporların burada yer alacak."
-      />
+      <StudentAnalytics />
     </div>
   );
 }

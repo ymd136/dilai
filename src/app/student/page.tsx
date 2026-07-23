@@ -9,5 +9,5 @@ export default async function StudentPage() {
     redirect("/login");
   }
 
-  return <StudentDashboard user={user} hasActiveClass={false} />;
+  return <StudentDashboard user={user} hasActiveClass={true} />;
 }

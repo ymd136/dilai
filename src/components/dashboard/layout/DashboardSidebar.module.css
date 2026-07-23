@@ -111,6 +111,22 @@
 .navLabel {
   overflow: hidden;
   text-overflow: ellipsis;
+  flex: 1;
+}
+
+.navBadge {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  border-radius: var(--radius-full);
+  background: #ef4444;
+  color: white;
+  font-size: 0.65rem;
+  font-weight: 800;
+  flex-shrink: 0;
+  box-shadow: 0 2px 4px rgba(239, 68, 68, 0.4);
 }
 
 .footer {
