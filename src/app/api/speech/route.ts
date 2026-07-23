@@ -225,8 +225,10 @@ Lütfen sadece aşağıdaki JSON formatında yanıt ver:
       );
     }
 
+    const resultData = analysisResult as Record<string, any>;
+
     console.log(
-      `[Speech API] Analiz başarılı. Skor: ${analysisResult.overallScore}, Transcript: "${analysisResult.transcript?.substring(0, 50)}..."`
+      `[Speech API] Analiz başarılı. Skor: ${resultData.overallScore}, Transcript: "${typeof resultData.transcript === "string" ? resultData.transcript.substring(0, 50) : ""}..."`
     );
 
     // --- dryRun modunda DB'ye kaydetme, sadece sonucu döndür ---
@@ -234,13 +236,13 @@ Lütfen sadece aşağıdaki JSON formatında yanıt ver:
       return NextResponse.json({
         success: true,
         dryRun: true,
-        transcript: analysisResult.transcript,
-        overallScore: analysisResult.overallScore,
-        fluencyScore: analysisResult.fluencyScore,
-        accuracyScore: analysisResult.accuracyScore,
-        grammarErrors: analysisResult.grammarErrors,
-        pronunciationFeedback: analysisResult.pronunciationFeedback,
-        feedback: analysisResult.feedback,
+        transcript: resultData.transcript,
+        overallScore: resultData.overallScore,
+        fluencyScore: resultData.fluencyScore,
+        accuracyScore: resultData.accuracyScore,
+        grammarErrors: resultData.grammarErrors,
+        pronunciationFeedback: resultData.pronunciationFeedback,
+        feedback: resultData.feedback,
       });
     }
 
@@ -248,10 +250,10 @@ Lütfen sadece aşağıdaki JSON formatında yanıt ver:
       data: {
         assignmentId,
         userId,
-        content: analysisResult.transcript,
-        score: analysisResult.overallScore,
-        feedback: analysisResult.feedback,
-        aiAnalysis: analysisResult,
+        content: typeof resultData.transcript === "string" ? resultData.transcript : "",
+        score: typeof resultData.overallScore === "number" ? resultData.overallScore : null,
+        feedback: typeof resultData.feedback === "string" ? resultData.feedback : null,
+        aiAnalysis: JSON.parse(JSON.stringify(resultData)),
       },
     });
 

@@ -217,9 +217,9 @@ export default function DashboardSidebar({ user }: DashboardSidebarProps) {
           >
             <span className={styles.navIcon}>{item.icon}</span>
             <span className={styles.navLabel}>{item.label}</span>
-            {item.hasBadge && MOCK_STUDENT_ASSIGNMENTS.filter((a) => a.status === "PENDING").length > 0 && !sidebarCollapsed && (
+            {item.hasBadge && MOCK_STUDENT_ASSIGNMENTS.filter((a) => a.status === "pending").length > 0 && !sidebarCollapsed && (
               <span className={styles.navBadge}>
-                {MOCK_STUDENT_ASSIGNMENTS.filter((a) => a.status === "PENDING").length}
+                {MOCK_STUDENT_ASSIGNMENTS.filter((a) => a.status === "pending").length}
               </span>
             )}
           </button>
