@@ -5,42 +5,27 @@ import questionsData from "@/lib/mocks/questions.json";
 import type { WritingQuestion } from "@/types/question";
 import styles from "./WritingExercise.module.css";
 
+type AIEvaluationResult = {
+  overall_score: number;
+  grammar_score: number;
+  vocabulary_score: number;
+  feedback: string;
+  corrections: Array<{
+    original: string;
+    corrected: string;
+    reason: string;
+  }>;
+};
+
 type WritingExerciseProps = {
   level: string;
   onBack: () => void;
 };
 
-const MOCK_AI_SCORES = {
-  grammar: 80,
-  vocabulary: 75,
-  coherence: 82,
-  taskAchievement: 78,
-};
-
 const SCORE_LABELS: Record<string, string> = {
-  grammar: "Dilbilgisi",
-  vocabulary: "Kelime Bilgisi",
-  coherence: "Tutarlılık",
-  taskAchievement: "Görevi Tamamlama",
+  grammar_score: "Dilbilgisi",
+  vocabulary_score: "Kelime Bilgisi",
 };
-
-const MOCK_CORRECTIONS = [
-  {
-    original: "People thinks that",
-    fixed: "People think that",
-    explanation: "Subject-verb agreement: 'People' çoğul öznedir.",
-  },
-  {
-    original: "It is more better",
-    fixed: "It is better / It is much better",
-    explanation: "Double comparative hatası.",
-  },
-  {
-    original: "goverment",
-    fixed: "government",
-    explanation: "Yazım hatası.",
-  },
-];
 
 export default function WritingExercise({
   level,
@@ -55,6 +40,9 @@ export default function WritingExercise({
   const [currentIndex, setCurrentIndex] = useState(0);
   const [text, setText] = useState("");
   const [showResults, setShowResults] = useState(false);
+  const [isAnalyzing, setIsAnalyzing] = useState(false);
+  const [aiResult, setAiResult] = useState<AIEvaluationResult | null>(null);
+  const [error, setError] = useState<string | null>(null);
 
   const question = questions[currentIndex];
   const minWords = question?.minWords ?? 200;
@@ -64,13 +52,43 @@ export default function WritingExercise({
     .filter((w) => w.length > 0).length;
   const meetsMinimum = wordCount >= minWords;
 
-  const overallScore = Math.round(
-    Object.values(MOCK_AI_SCORES).reduce((a, b) => a + b, 0) /
-      Object.values(MOCK_AI_SCORES).length
-  );
+  const overallScore = aiResult
+    ? aiResult.overall_score
+    : 0;
 
-  const handleSubmit = () => {
-    setShowResults(true);
+  const handleSubmit = async () => {
+    if (!text.trim()) {
+      setError('Lütfen bir değerlendirilecek metin girin.');
+      return;
+    }
+
+    setIsAnalyzing(true);
+    setError(null);
+    setAiResult(null);
+
+    try {
+      const response = await fetch('/api/evaluate', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ text }),
+      });
+
+      const result = await response.json();
+
+      if (!response.ok || !result.success) {
+        throw new Error(result.error || 'Değerlendirme başarısız oldu.');
+      }
+
+      setAiResult(result.data);
+      setShowResults(true);
+    } catch (err) {
+      setError(err instanceof Error ? err.message : 'Bir hata oluştu.');
+      console.error('AI Değerlendirme Hatası:', err);
+    } finally {
+      setIsAnalyzing(false);
+    }
   };
 
   const nextQuestion = () => {
@@ -139,11 +157,17 @@ export default function WritingExercise({
           <button
             type="button"
             className={styles.submitBtn}
-            disabled={wordCount < 20}
+            disabled={wordCount < 20 || isAnalyzing}
             onClick={handleSubmit}
           >
-            AI Değerlendirmesi İçin Gönder 🤖
+            {isAnalyzing ? 'Analiz Ediliyor...' : 'AI Değerlendirmesi İçin Gönder 🤖'}
           </button>
+
+          {error && (
+            <div className={styles.error}>
+              ⚠️ {error}
+            </div>
+          )}
         </div>
       )}
 
@@ -158,59 +182,67 @@ export default function WritingExercise({
           </div>
 
           <div className={styles.scoreGrid}>
-            {Object.entries(MOCK_AI_SCORES).map(([key, value]) => (
-              <div key={key} className={styles.scoreItem}>
-                <span className={styles.scoreLabel}>
-                  {SCORE_LABELS[key] || key}
-                </span>
-                <span className={styles.scoreValue}>{value}</span>
-                <div className={styles.scoreBar}>
-                  <div
-                    className={styles.scoreBarFill}
-                    style={{ width: `${value}%` }}
-                  />
+            {aiResult && (
+              <>
+                <div className={styles.scoreItem}>
+                  <span className={styles.scoreLabel}>
+                    {SCORE_LABELS.grammar_score}
+                  </span>
+                  <span className={styles.scoreValue}>{aiResult.grammar_score}</span>
+                  <div className={styles.scoreBar}>
+                    <div
+                      className={styles.scoreBarFill}
+                      style={{ width: `${aiResult.grammar_score}%` }}
+                    />
+                  </div>
                 </div>
-              </div>
-            ))}
+                <div className={styles.scoreItem}>
+                  <span className={styles.scoreLabel}>
+                    {SCORE_LABELS.vocabulary_score}
+                  </span>
+                  <span className={styles.scoreValue}>{aiResult.vocabulary_score}</span>
+                  <div className={styles.scoreBar}>
+                    <div
+                      className={styles.scoreBarFill}
+                      style={{ width: `${aiResult.vocabulary_score}%` }}
+                    />
+                  </div>
+                </div>
+              </>
+            )}
           </div>
 
           <div className={styles.feedbackSection}>
             <h4 className={styles.feedbackTitle}>AI Geri Bildirimi</h4>
             <p className={styles.feedbackText}>
-              Essay yapısı genel olarak iyi. Giriş paragrafı konuyu açıkça
-              ortaya koyuyor. Ancak kelime çeşitliliği artırılmalı — aynı
-              kelimelerin tekrarı puanı düşürüyor. Bağlaç kullanımı güçlü.
-              Sonuç paragrafında kendi fikrinizi daha net belirtmeniz gerekiyor.
+              {aiResult?.feedback || 'Geri bildirim yükleniyor...'}
             </p>
           </div>
 
           {/* Corrections */}
-          <div className={styles.corrections}>
-            <h4 className={styles.feedbackTitle}>
-              🔍 Tespit Edilen Hatalar (Mock)
-            </h4>
-            {MOCK_CORRECTIONS.map((c, i) => (
-              <div key={i} className={styles.correction}>
-                <span className={styles.correctionIcon}>✏️</span>
-                <div>
-                  <p className={styles.correctionText}>
-                    <span className={styles.correctionOriginal}>
-                      {c.original}
-                    </span>
-                    {" → "}
-                    <span className={styles.correctionFixed}>{c.fixed}</span>
-                  </p>
-                  <p className={styles.correctionText}>{c.explanation}</p>
+          {aiResult?.corrections && aiResult.corrections.length > 0 && (
+            <div className={styles.corrections}>
+              <h4 className={styles.feedbackTitle}>
+                🔍 Tespit Edilen Hatalar
+              </h4>
+              {aiResult.corrections.map((c, i) => (
+                <div key={i} className={styles.correction}>
+                  <span className={styles.correctionIcon}>✏️</span>
+                  <div>
+                    <p className={styles.correctionText}>
+                      <span className={styles.correctionOriginal}>
+                        {c.original}
+                      </span>
+                      {" → "}
+                      <span className={styles.correctionFixed}>{c.corrected}</span>
+                    </p>
+                    <p className={styles.correctionText}>{c.reason}</p>
+                  </div>
                 </div>
-              </div>
-            ))}
-          </div>
+              ))}
+            </div>
+          )}
 
-          <div className={styles.analysisNote}>
-            <span>⚠️</span>
-            Bu sonuçlar mock verilerdir. API entegrasyonu sonraki aşamada
-            eklenecektir.
-          </div>
 
           {currentIndex < questions.length - 1 && (
             <button
