@@ -137,3 +137,50 @@ Bu sprint içerisinde tamamlanan başlıca geliştirmeler şunlardır:
   * Ödev ve soru sistemi entegrasyonunda bazı veri eksiklikleri (KAN-17) sprint ortasında fark edildi; içerik düzenlemeleri başlangıçta planlanabilirdi.
   * Öğretmen ve öğrenci ekranları arasındaki etkileşim senaryoları (uçtan uca test) daha erken aşamada test edilebilirdi.
 * **Aksiyon Planı:** Sprint 3 planlamasında öğrenci-öğretmen etkileşimini kapsayan uçtan uca test senaryoları önceden tanımlanacak; yapay zeka entegrasyonu ve bildirim sistemi entegrasyonu için gerekli spike'lar sprint başında netleştirilecektir.
+
+
+
+### Sprint 3
+
+* **Güncel Süreç:** Sprint 3
+
+Bu sprint kapsamında yapay zeka ses analiz motoru entegre edilmiş, mikrofon kayıt ve ses yükleme arayüzleri tamamlanmış, Speech-to-Text altyapısı ve LLM destekli otomatik puanlama sistemi hayata geçirilmiş, ayrıca projenin canlıya alım (deployment) ile CI/CD süreçleri yapılandırılmıştır.
+
+### 📈 Proje Yönetimi ve Süreç
+**Backlog Düzeni ve Görev Dağılımı:**  
+Sprint 3 planlamasında yapay zeka entegrasyonu ve canlı ortama alma süreçleri önceliklendirilmiştir. Jira üzerindeki görevler (KAN-21, KAN-20, KAN-19, KAN-18) ilgili ekip üyelerine atanmış, tüm görevler (Medium öncelik seviyesinde) başarıyla tamamlanarak **Tamamlandı** statüsüne getirilmiştir.
+
+**Daily Scrum & İletişim:**  
+Ekip içi iletişim ve günlük (Daily Scrum) toplantıları Google Meet üzerinden yürütülmüş; ses işleme API'leri, LLM entegrasyonu, ortam değişkenleri (Environment Variables) ve Vercel deployment süreçleri eşzamanlı olarak Jira board'una yansıtılmıştır.
+
+**Sprint Board:**
+<!-- Lütfen Sprint 3 Jira Board görselini buraya sürükleyip bırakın -->
+
+<img width="1310" height="130" alt="image" src="https://github.com/user-attachments/assets/45d67441-6075-46f6-bff0-348c25d01c87" />
+
+### ✨ Tamamlanan Geliştirmeler
+Bu sprint içerisinde tamamlanan başlıca geliştirmeler şunlardır:
+
+1. **Mikrofon Kayıt Arayüzü (Frontend) ve Ses Upload İşlemi (KAN-21):** Öğrencilerin speaking ödevlerini tamamlayabilmeleri için tarayıcı tabanlı canlı mikrofon kayıt arayüzü geliştirildi. Alınan ses kayıtlarının sunucuya güvenli bir şekilde aktarılması (upload) sağlandı. *(Geliştirici: Batuhan Bilgili)*
+
+2. **LLM Değerlendirme Entegrasyonu (KAN-20):** Metne dönüştürülen konuşma verilerinin LLM altyapısı kullanılarak puanlanması ve analiz edilmesi sağlandı. Öğrencilerin yanıtları akademik sınav kriterlerine uygun şekilde otomatik değerlendirmeye tabi tutuldu. *(Geliştirici: Sudenaz Şenbay)*
+
+3. **Speech-to-Text API Entegrasyonu (KAN-19):** Öğrenciler tarafından yüklenen ses kayıtlarının yüksek doğrulukla metne dönüştürülmesini sağlayan Speech-to-Text (STT) API entegrasyonu gerçekleştirildi. *(Geliştirici: Ceyda Kuş)*
+
+4. **Vercel Deployment & CI/CD & Environment Variables (KAN-18):** Uygulamanın canlıya alınması için Vercel üzerinde CI/CD süreçleri ve otomatik deployment altyapısı kuruldu. Güvenlik için API anahtarları ve ortam değişkenleri (Environment Variables) yapılandırıldı. *(Geliştirici: Yiğit Mert Demir)*
+
+---
+
+### 🔍 Sprint Review
+* **Participants:** <kbd>**Batuhan Bilgili**</kbd>, <kbd>**Yiğit Mert Demir**</kbd>, <kbd>**Sudenaz Şenbay**</kbd>, <kbd>**Ceyda Kuş**</kbd>
+* **Değerlendirme:** Sprint 3 hedefleri doğrultusunda projenin en kritik aşaması olan yapay zeka destekli konuşma analizi (STT + LLM) ve canlı ortama yayınlama süreçleri tüm ekibin katılımıyla tamamlanmıştır. Öğrencinin ses kaydetmesinden, metne dönüştürülmesine ve LLM ile anlık puanlanmasına kadar olan uçtan uca akış canlı ortamda demo edilmiştir. Vercel deployment ve CI/CD süreçlerinin tamamlanmasıyla proje üretime (production) hazır hale getirilmiştir.
+
+### Sprint Retrospective
+* **Neler İyi Gitti?**
+  * Ekip üyelerinin her birinin farklı bir teknik modülü (Frontend/Upload, STT, LLM, DevOps) üstlenmesi paralel geliştirme hızını maksimuma çıkardı.
+  * Ses kaydından LLM değerlendirmesine kadar olan boru hattı (pipeline) son derece akıcı ve kararlı bir şekilde bağlandı.
+  * CI/CD altyapısı sayesinde kod güncellemeleri anında canlı ortama yansıtıldı.
+* **Neler Geliştirilebilir?**
+  * Farklı tarayıcı ve cihazlardaki (Safari, Chrome, iOS/Android) mikrofon izinleri ve ses formatı uyumluluk testleri bir sonraki aşamada daha detaylı ele alınabilir.
+  * STT ve LLM API yanıt sürelerinin optimizasyonu için veri önbellekleme mekanizmaları değerlendirilebilir.
+* **Aksiyon Planı:** Projenin nihai teslimi öncesinde farklı cihazlarda ve turlarda uçtan uca (E2E) kullanıcı kabul testleri (UAT) gerçekleştirilecektir.
